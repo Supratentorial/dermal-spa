@@ -1,0 +1,18 @@
+@import "../assets/styles/colors";
+
+.navbar-custom {
+  background-color: $grey-100;
+  border-bottom: 1px solid $grey-300;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+
+  .nav-link {
+    color: $grey-700;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    &:hover{
+      background-color: $grey-200;
+    }
+  }
+}

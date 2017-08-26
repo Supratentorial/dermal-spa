@@ -1,6 +1,7 @@
 @import '../node_modules/sass-material-design-colors/palette.scss';
 @import './assets/styles/_colors';
 
+
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -40,6 +41,6 @@
 
 
 body{
-  background-color: $blue-grey-50;
+  padding-top: 70px;
 }
 /* You can add global styles to this file, and also import other style files */

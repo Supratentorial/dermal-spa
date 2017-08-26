@@ -1,4 +1,4 @@
-<header class="navbar navbar-light fixed-top navbar-expand-lg">
+<header class="navbar navbar-custom fixed-top navbar-expand-lg">
   <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = true">Dermal</a>
   <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
     <ul class="navbar-nav mr-auto">
@@ -13,11 +13,8 @@
           component }}</a>
       </li>
     </ul>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-primary btn-sm my-2 my-sm-0" (click)="login()">Login</button>
   </div>
 </header>
-
-<button (click)="login()">Login</button>
-<button>Patients</button>
 <router-outlet></router-outlet>
 
