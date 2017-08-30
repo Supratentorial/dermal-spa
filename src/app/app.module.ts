@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 import { PatientListItemComponent } from './patient-list-item/patient-list-item.component';
+import { BillingDashboardComponent } from './billing-dashboard/billing-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PatientListItemComponent } from './patient-list-item/patient-list-item.
     HomeComponent,
     CallbackComponent,
     PatientDashboardComponent,
-    PatientListItemComponent
+    PatientListItemComponent,
+    BillingDashboardComponent
   ],
   imports: [
     BrowserModule,
