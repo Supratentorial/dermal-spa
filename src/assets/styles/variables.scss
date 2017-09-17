@@ -1,0 +1,18 @@
+@import "~sass-material-design-colors/palette";
+
+$theme-colors: (
+    primary: $light-blue-900,
+    secondary: $grey-200,
+    success: $green-200,
+    info: #FBC02D,
+    warning: #FF5722,
+    danger: $deep-orange-700,
+    light: #1B5E20,
+    dark: $blue-grey-700
+);
+
+
+$side-nav-color: #36404e;
+$side-header-color: $side-nav-color;
+$side-footer-color: darken($side-nav-color, 5%);
+$side-divider-color: darken($side-nav-color, 5%);

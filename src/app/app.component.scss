@@ -1,18 +1,41 @@
-@import "../assets/styles/colors";
+@import "../assets/styles/variables";
 
-.navbar-custom {
-  background-color: $grey-100;
-  border-bottom: 1px solid $grey-300;
-  padding-top: 4px;
-  padding-bottom: 4px;
+.side-nav {
+  width: 200px;
+  position: fixed;
+  left: 0;
+  background-color: $side-nav-color;
+  height: 100%;
+}
 
+.side-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 60px;
+  background-color: $side-header-color;
+  margin-bottom: 60px;
+  width: 200px;
 
-  .nav-link {
-    color: $grey-700;
-    margin-top: -8px;
-    margin-bottom: -8px;
-    &:hover{
-      background-color: $grey-200;
-    }
+  h4 {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-family: 'Ubuntu', sans-serif;
   }
+}
+
+.side-footer {
+  width: 200px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  background-color: $side-footer-color;
+}
+
+hr{
+  border-top: 1px solid $side-divider-color;
+  margin: 0;
 }
