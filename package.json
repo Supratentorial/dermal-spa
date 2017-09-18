@@ -31,7 +31,7 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
     "sass-material-design-colors": "^1.0.3",
-    "typescript": "^2.4.2",
+    "typescript": "^2.4.0",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

@@ -1,6 +1,10 @@
+@import '~sass-material-design-colors/palette.scss';
+
 .page-header{
-  background-color: red;
-  height: 70px;
-  margin-top: -70px;
+  background-color: $grey-50;
+  height: 50px;
   width: 100%;
+  position: fixed;
+  top:0;
+  border-bottom: $grey-300 solid 1px;
 }
