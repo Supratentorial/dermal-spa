@@ -16,6 +16,7 @@ import { BillingDashboardComponent } from './billing-dashboard/billing-dashboard
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     BillingDashboardComponent,
     PatientDetailsComponent,
     AddPatientComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

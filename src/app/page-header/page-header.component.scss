@@ -7,4 +7,12 @@
   position: fixed;
   top:0;
   border-bottom: $grey-300 solid 1px;
+  padding: 0 16px;
+}
+
+h3{
+  line-height: 50px;
+  color: $grey-800;
+  font-weight: 400;
+  font-size: 22px;
 }
