@@ -1,21 +1,22 @@
 @import '../node_modules/sass-material-design-colors/palette.scss';
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
-
 // Custom overrides
 @import 'assets/styles/variables';
 @import '~bootstrap/scss/bootstrap.scss';
 
-
-body{
+body {
   padding-top: 50px;
   padding-left: 200px;
 }
 
-.card{
+.card {
   border-radius: 0;
+  border: none;
+  background-color: #FDFDFD;
 }
 
-.card-header{
-  background-color: white;
+.card-header {
+  background-color: #FDFDFD;
 }
+
 /* You can add global styles to this file, and also import other style files */
