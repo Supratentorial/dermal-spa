@@ -7,16 +7,31 @@
 body {
   padding-top: 50px;
   padding-left: 200px;
+  background-color: #EFF3F6;
 }
 
 .card {
   border-radius: 0;
   border: none;
-  background-color: #FDFDFD;
 }
 
 .card-header {
   background-color: #FDFDFD;
 }
+
+.container-fluid {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.icon {
+  margin-right: 10px;
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+}
+
 
 /* You can add global styles to this file, and also import other style files */

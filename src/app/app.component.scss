@@ -1,11 +1,11 @@
 @import "../assets/styles/variables";
 
-$side-header-color: $grey-200;
-$side-nav-color: $grey-50;
-$side-nav-font-color: $grey-800;
-$side-footer-color: $grey-200;
-$side-divider-color: $grey-300;
-$side-header-font-color: $grey-800;
+$side-nav-color: #263238;
+$side-nav-font-color: $grey-500;
+$side-footer-color: darken($side-nav-color, 2.5%);
+$side-header-color: white;
+$side-divider-color: #323C42;
+$side-header-font-color: $grey-700;
 
 .side-nav {
   width: 200px;
@@ -13,7 +13,6 @@ $side-header-font-color: $grey-800;
   left: 0;
   background-color: $side-nav-color;
   height: 100%;
-  border-right: 1px solid $side-divider-color;
 }
 
 .side-header {
@@ -22,9 +21,9 @@ $side-header-font-color: $grey-800;
   top: 0;
   height: 50px;
   background-color: $side-header-color;
-  border-right: 1px solid $side-divider-color;
-  border-bottom: 1px solid $side-divider-color;
   width: 200px;
+  border-right: 1px solid $grey-300;
+  border-bottom: 1px solid $grey-300;
 
   h4 {
     color: $side-header-font-color;
@@ -42,22 +41,32 @@ $side-header-font-color: $grey-800;
   left: 0;
   height: 50px;
   background-color: $side-footer-color;
-  border-top: 1px solid $side-divider-color;
-  border-right: 1px solid $side-divider-color;
 }
 
 .nav-link {
-  border-left: 4px solid transparent;
+  height: 44px;
+  border-left: 6px solid transparent;
   color: $side-nav-font-color;
   padding: 10px 14px;
-  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  user-select: none;
+
   &:hover {
-    background-color: $grey-200;
-    border-left: solid 4px map_get($theme-colors, primary);
-    color: map_get($theme-colors, primary);
+    background-color: #323C42;
+    border-left: solid 6px map_get($theme-colors, primary);
+    color: white;
   }
   &.active {
-    border-left: solid 4px map_get($theme-colors, primary);
-    color: map_get($theme-colors, primary);
+    border-left: solid 6px map_get($theme-colors, primary);
+    color: white;
+    outline: 0;
+  }
+
+  &:focus {
+    outline: 0;
   }
 }
+
+

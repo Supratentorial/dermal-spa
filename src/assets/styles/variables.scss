@@ -1,8 +1,8 @@
 @import "~sass-material-design-colors/palette";
 
 $theme-colors: (
-    primary: $light-blue-800,
-    secondary: $grey-200,
+    primary: $light-blue-900,
+    secondary: white,
     success: $green-200,
     info: #FBC02D,
     warning: #FF5722,
@@ -12,3 +12,9 @@ $theme-colors: (
 );
 
 $title-font-family: 'Ubuntu', sans-serif;
+
+$btn-border-radius: 0px;
+
+$input-border-radius: 0px;
+
+$input-focus-border-color: map_get($theme-colors, primary);
