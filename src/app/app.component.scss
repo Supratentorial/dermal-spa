@@ -24,6 +24,10 @@ $side-header-font-color: $grey-700;
   width: 200px;
   border-right: 1px solid $grey-300;
   border-bottom: 1px solid $grey-300;
+  cursor: pointer;
+  &:focus{
+    outline: 0;
+  }
 
   h4 {
     color: $side-header-font-color;

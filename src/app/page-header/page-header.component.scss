@@ -3,11 +3,11 @@
 .page-header{
   background-color: white;
   height: 50px;
-  width: 100%;
   position: fixed;
   top:0;
   border-bottom: $grey-300 solid 1px;
   padding: 0 16px;
+  width: calc(100% - 200px);
 }
 
 h3{
@@ -15,4 +15,15 @@ h3{
   color: $grey-800;
   font-weight: 400;
   font-size: 22px;
+  margin-bottom: 0;
+}
+
+input{
+  border-radius: 2em;
+  background-color: #EFF3F6;
+  border: none;
+  padding: 4px 16px;
+  &:focus{
+    outline: none;
+  }
 }

@@ -1,8 +1,13 @@
-<div class="side-header">
+<div class="side-header" routerLink="/">
   <h4>Dermal</h4>
 </div>
 
 <nav class="side-nav">
+
+  <div class="nav-link d-flex align-items-center" routerLink="home" routerLinkActive="active">
+    <div class="icon" [inlineSVG]="'assets/svg/sprites.svg#home'"></div>
+    Dashboard
+  </div>
 
   <div class="nav-link d-flex align-items-center" routerLink="patients" routerLinkActive="active">
     <div class="icon" [inlineSVG]="'assets/svg/sprites.svg#patients'"></div>
@@ -17,6 +22,11 @@
   <div class="nav-link d-flex align-items-center">
     <div class="icon" [inlineSVG]="'assets/svg/sprites.svg#appointments'"></div>
     Appointments
+  </div>
+
+  <div class="nav-link d-flex align-items-center">
+    <div class="icon" [inlineSVG]="'assets/svg/sprites.svg#settings'"></div>
+    Settings
   </div>
 
 </nav>

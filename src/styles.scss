@@ -16,7 +16,7 @@ body {
 }
 
 .card-header {
-  background-color: #FDFDFD;
+  background-color: $grey-50;
 }
 
 .container-fluid {
@@ -26,6 +26,7 @@ body {
 
 .icon {
   margin-right: 10px;
+  line-height: 22px;
   svg {
     width: 22px;
     height: 22px;
@@ -33,5 +34,19 @@ body {
   }
 }
 
+.page-header-icon {
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $grey-700;
+  }
+}
+
+.form-group {
+  label {
+    margin-bottom: 0;
+    color: $blue-grey-400;
+  }
+}
 
 /* You can add global styles to this file, and also import other style files */

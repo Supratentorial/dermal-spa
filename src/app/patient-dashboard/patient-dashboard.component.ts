@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Patient} from '../patient';
+import {PatientService} from '../patient.service';
 
 @Component({
   selector: 'app-patient-dashboard',
@@ -9,9 +11,13 @@ export class PatientDashboardComponent implements OnInit {
 
   pageTitle = 'Patients';
 
-  constructor() { }
+  patients: Patient[] = [];
+
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit() {
+    this.patientService.getPatients().subscribe((res) => {this.patients.push(res); });
   }
 
 }

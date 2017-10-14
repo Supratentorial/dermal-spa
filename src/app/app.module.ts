@@ -9,28 +9,28 @@ import {InlineSVGModule} from 'ng-inline-svg';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
-import { PatientListItemComponent } from './patient-list-item/patient-list-item.component';
 import { BillingDashboardComponent } from './billing-dashboard/billing-dashboard.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { LoaderComponent } from './loader/loader.component';
+import {APP_CONFIG, AppConfig} from './app.config';
+import {PatientService} from './patient.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CallbackComponent,
     PatientDashboardComponent,
-    PatientListItemComponent,
     BillingDashboardComponent,
     PatientDetailsComponent,
     AddPatientComponent,
     PageHeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import { LoaderComponent } from './loader/loader.component';
     NgbModule.forRoot(),
     InlineSVGModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, {provide: APP_CONFIG, useValue: AppConfig}, PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

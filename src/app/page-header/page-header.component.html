@@ -1,3 +1,5 @@
-<div class="page-header">
-  <h3>{{pageTitle}}</h3>
+<div class="page-header d-flex flex-row align-items-center justify-content-end">
+  <h3 class="mr-auto">{{pageTitle}}</h3>
+  <input id="patient-search" [(ngModel)]="" [ngbTypeahead]="searchPatients" placeholder="Search patients..."/>
+  <div class="page-header-icon" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>
 </div>
