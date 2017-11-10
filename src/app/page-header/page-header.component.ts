@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Patient} from '../patient';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
@@ -7,39 +7,75 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import {PatientService} from '../patient.service';
+import {OidcSecurityService} from 'angular-auth-oidc-client';
+import {Subscription} from 'rxjs/Subscription';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.scss']
 })
-export class PageHeaderComponent implements OnInit {
+export class PageHeaderComponent implements OnInit, OnDestroy {
 
   selectedPatient: any;
-  searching: boolean = false;
+  searching = false;
   @Input()
   pageTitle: string;
+  isAuthorizedSubscription: Subscription;
+  isAuthorized: boolean;
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService, public oidcSecurityService: OidcSecurityService, private router: Router) {
+    if (this.oidcSecurityService.moduleSetup) {
+      this.callBackLogic();
+    } else {
+      this.oidcSecurityService.onModuleSetup.subscribe(() => {
+        this.callBackLogic();
+      });
+    }
   }
 
   ngOnInit() {
+    this.isAuthorizedSubscription = this.oidcSecurityService.getIsAuthorized().subscribe((isAuthorized: boolean) => {
+      this.isAuthorized = isAuthorized;
+      console.log(this.isAuthorized);
+    });
   }
 
-  searchPatients(text$: Observable<string>) {
+  ngOnDestroy() {
+    this.isAuthorizedSubscription.unsubscribe();
+    this.oidcSecurityService.onModuleSetup.unsubscribe();
+  }
+
+  login() {
+    this.oidcSecurityService.authorize();
+  }
+
+  private callBackLogic() {
+    if (window.location.hash) {
+      this.oidcSecurityService.authorizedCallback();
+    }
+  }
+
+  logout() {
+    this.oidcSecurityService.logoff();
+  }
+
+  onSelect($event, input) {
+    $event.preventDefault();
+    this.router.navigate(['/patients/', $event.item.id, 'details']);
+  }
+
+  searchPatients = (text$: Observable<string>) =>
     text$
       .debounceTime(200)
       .distinctUntilChanged()
       .do(() => this.searching = true)
-      .switchMap(term => {
-          this.patientService.getPatients(term)
-            .do()
-            .catch(() => {
-              console.log('patient search failed');
-              return Observable.of([]);
-            })
-            .do(() => this.searching = false)
-        }
-      );
-  }
+      .switchMap(searchTerm =>
+        this.patientService.getPatients(searchTerm)
+          .catch(() => {
+            console.log('patient search failed');
+            return Observable.of([]);
+          }))
+      .do(() => this.searching = false)
 }

@@ -1,22 +1,33 @@
 import {Inject, Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Response} from '@angular/http';
 import {Patient} from './patient';
 import {APP_CONFIG} from './app.config';
 import {IAppConfig} from './iapp.config';
+import {Observable} from 'rxjs/Observable';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class PatientService {
 
-  constructor(private http: Http, @Inject(APP_CONFIG) private config: IAppConfig) {
+  constructor(private httpClient: HttpClient, @Inject(APP_CONFIG) private config: IAppConfig) {
 
   }
 
   getPatients(searchTerm: string) {
-    return this.http.get(this.config.patientsEndPoint).map((res: Response) => res.json());
+    let httpParams: HttpParams = new HttpParams();
+    httpParams = httpParams.append('searchTerm', searchTerm);
+    if (searchTerm === '') {
+      return Observable.of([]);
+    }
+    return this.httpClient.get(this.config.patientsEndPoint, {params: httpParams});
   }
 
   savePatient(patient: Patient) {
     console.log(patient);
-    return this.http.post(this.config.patientsEndPoint, patient).map((res: Response) => res.json());
+    return this.httpClient.post(this.config.patientsEndPoint, patient).map((res: Response) => res.json());
+  }
+
+  getPatientById(patientId: number) {
+    return this.httpClient.get(this.config.patientsEndPoint + '/' + patientId);
   }
 }

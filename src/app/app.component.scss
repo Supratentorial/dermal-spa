@@ -13,6 +13,7 @@ $side-header-font-color: $grey-700;
   left: 0;
   background-color: $side-nav-color;
   height: 100%;
+  border-right: 1px solid $grey-300;
 }
 
 .side-header {
@@ -45,6 +46,7 @@ $side-header-font-color: $grey-700;
   left: 0;
   height: 50px;
   background-color: $side-footer-color;
+  border-right: solid 1px $grey-300;
 }
 
 .nav-link {

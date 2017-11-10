@@ -17,7 +17,7 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getPatients().subscribe((res) => {this.patients.push(res); });
+    // this.patientService.getPatients().subscribe((res) => {this.patients.push(res); });
   }
 
 }

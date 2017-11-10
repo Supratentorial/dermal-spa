@@ -1,29 +1,22 @@
 @import '~sass-material-design-colors/palette.scss';
 
-.page-header{
+.page-header {
   background-color: white;
-  height: 50px;
+  height: 51px;
   position: fixed;
-  top:0;
+  top: 0;
   border-bottom: $grey-300 solid 1px;
-  padding: 0 16px;
+  margin: 0;
   width: calc(100% - 200px);
 }
 
-h3{
-  line-height: 50px;
-  color: $grey-800;
-  font-weight: 400;
-  font-size: 22px;
-  margin-bottom: 0;
-}
-
-input{
+input {
   border-radius: 2em;
   background-color: #EFF3F6;
   border: none;
   padding: 4px 16px;
-  &:focus{
+  &:focus {
     outline: none;
+    width: 100%;
   }
 }

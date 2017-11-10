@@ -1,5 +1,22 @@
-<div class="page-header d-flex flex-row align-items-center justify-content-end">
-  <h3 class="mr-auto">{{pageTitle}}</h3>
-  <input id="patient-search" [(ngModel)]="" [ngbTypeahead]="searchPatients" placeholder="Search patients..."/>
-  <div class="page-header-icon" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>
+<ng-template #resultTemplate let-r="result" let-t="term">
+  <div>{{r.givenNames}} {{r.familyName}}</div>
+  <div>{{r.mobilePhone.value}}</div>
+</ng-template>
+
+<div class="page-header row align-items-center">
+  <div class="col-sm">
+    <ng-content></ng-content>
+  </div>
+  <div class="col-sm">
+    <input #patientSearch id="patient-search" [(ngModel)]="selectedPatient" [ngbTypeahead]="searchPatients"
+           placeholder="Search patients..." [resultTemplate]="resultTemplate"
+           (selectItem)="onSelect($event);patientSearch.value='' "/>
+  </div>
+  <div class="col-sm">
+    <!--<div class="page-header-icon" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>-->
+    <button class="btn btn-sm btn-primary" *ngIf="!isAuthorized" (click)="login()">Login</button>
+    <button class="btn btn-sm btn-primary" *ngIf="isAuthorized" (click)="logout()">Logout</button>
+  </div>
 </div>
+
+

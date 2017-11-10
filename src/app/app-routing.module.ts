@@ -6,14 +6,16 @@ import {BillingDashboardComponent} from './billing-dashboard/billing-dashboard.c
 import {PatientDetailsComponent} from './patient-details/patient-details.component';
 import {AddPatientComponent} from './add-patient/add-patient.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {CallbackComponent} from './callback/callback.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: DashboardComponent},
   {path: 'patients', component: PatientDashboardComponent},
   {path: 'patients/add-patient', component: AddPatientComponent},
-  {path: 'patients/{patientId}/details', component: PatientDetailsComponent},
-  {path: 'billing', component: BillingDashboardComponent}
+  {path: 'patients/:patientId/details', component: PatientDetailsComponent},
+  {path: 'billing', component: BillingDashboardComponent},
+  {path: 'callback', component: CallbackComponent}
 ];
 
 @NgModule({
