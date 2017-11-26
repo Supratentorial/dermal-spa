@@ -1,2 +1,114 @@
-<app-page-header [pageTitle]="title"></app-page-header>
+<app-page-header></app-page-header>
 <app-patient-banner [patient]="patient"></app-patient-banner>
+
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-header">
+          Diagnoses
+          <a href="#" class="float-right">edit</a>
+        </div>
+        <div class="card-body">
+          AIDS
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-header">
+          Allergies
+          <a href="#" class="float-right">edit</a>
+        </div>
+        <div class="card-body">
+          Allergy status not recorded.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <ng-container *ngIf="identityEditing; then editIdentity else viewIdentity"></ng-container>
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-header">
+          Medications
+          <a href="#" class="float-right">edit</a>
+        </div>
+        <div class="card-body">
+          No medications recorded.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #editIdentity>
+  <div class="card">
+    <div class="card-header">
+      Editing Identity & Contact
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group row no-gutters mb-2">
+          <label for="givenName" class="col-sm-3 col-form-label">Given Name</label>
+          <div class="col-sm-9">
+            <input id="givenName" name="givenNames" class="form-control" [(ngModel)]="patient.givenNames"/>
+          </div>
+        </div>
+        <div class="form-group row no-gutters mb-2">
+          <label for="familyName" class="col-sm-3 col-form-label">Family Name</label>
+          <div class="col-sm-9">
+            <input id="familyName" name="familyName" class="form-control" [(ngModel)]="patient.familyName"/>
+          </div>
+        </div>
+        <div class="form-group row no-gutters mb-2">
+          <label for="genderEdit" class="col-sm-3 col-form-label">Gender</label>
+          <div class="col-sm-9">
+            <input id="genderEdit" name="genderEdit" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="birthday" class="col-sm-3 col-form-label">Birthday</label>
+          <div class="col-sm-9">
+            <input id="birthday" name="birthday" class="form-control" [(ngModel)]="patient.birthDate"/>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <button class="btn btn-sm btn-success">Save</button>
+    <button class="btn btn-sm btn-warning" (click)="identityEditing = false">Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #viewIdentity>
+  <div class="card">
+    <div class="card-header">
+      Identity & Contact
+      <a [routerLink]="" (click)="identityEditing = true" class="float-right">edit</a>
+    </div>
+    <div class="card-body">
+      <div class="form-group row no-gutters">
+        <label for="name" class="col-form-label col-sm-3">Name</label>
+        <div class="col-sm-9">
+          <input id="name" type="text" readonly class="form-control-plaintext" value="Blake Mumford"/>
+        </div>
+      </div>
+      <div class="form-group row no-gutters">
+        <label for="dob" class="col-sm-3 col-form-label">Birthday</label>
+        <div class="col-sm-9">
+          <input id="dob" type="text" readonly class="form-control-plaintext" value="15/06/1990"/>
+        </div>
+      </div>
+      <div class="form-group row no-gutters">
+        <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+        <div class="col-sm-9">
+          <input id="gender" type="text" readonly class="form-control-plaintext" value="Male"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

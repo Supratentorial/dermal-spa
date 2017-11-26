@@ -1,6 +1,6 @@
 <ng-template #resultTemplate let-r="result" let-t="term">
-  <div>{{r.givenNames}} {{r.familyName}}</div>
-  <div>{{r.mobilePhone.value}}</div>
+  <div>{{r?.givenNames}} {{r?.familyName}}</div>
+  <div>{{r?.mobilePhone.value}}</div>
 </ng-template>
 
 <div class="page-header row align-items-center">
@@ -10,7 +10,7 @@
   <div class="col-sm">
     <input #patientSearch id="patient-search" [(ngModel)]="selectedPatient" [ngbTypeahead]="searchPatients"
            placeholder="Search patients..." [resultTemplate]="resultTemplate"
-           (selectItem)="onSelect($event);patientSearch.value='' "/>
+           (selectItem)="onSelect($event, patientSearch);patientSearch.value='' "/>
   </div>
   <div class="col-sm">
     <!--<div class="page-header-icon" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>-->

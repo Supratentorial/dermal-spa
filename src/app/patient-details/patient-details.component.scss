@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables';
+
+h4 {
+  background-color: map_get($theme-colors, primary);
+
+}
+
+.card-header{
+  padding: 5px 10px;
+  border-bottom: none;
+  font-weight: 500;
+}
+
+.card-body{
+  padding: 0.4em 0.8em;
+}

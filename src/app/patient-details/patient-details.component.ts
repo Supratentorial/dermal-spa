@@ -15,6 +15,8 @@ export class PatientDetailsComponent implements OnInit {
   patientId: number;
   patient: Patient;
 
+  identityEditing: boolean;
+
   constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }
 
