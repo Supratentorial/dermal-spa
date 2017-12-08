@@ -24,7 +24,10 @@ export class PatientService {
 
   savePatient(patient: Patient) {
     console.log(patient);
-    return this.httpClient.post(this.config.patientsEndPoint, patient).map((res: Response) => res.json());
+    if (patient.id === 0) {
+      return this.httpClient.post(this.config.patientsEndPoint, patient).map((res: Response) => res.json());
+    }
+    return this.httpClient.put(this.config.patientsEndPoint, patient);
   }
 
   getPatientById(patientId: number) {

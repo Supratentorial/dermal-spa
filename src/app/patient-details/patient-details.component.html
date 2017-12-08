@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-lg-3">
       <ng-container *ngIf="identityEditing; then editIdentity else viewIdentity"></ng-container>
     </div>
@@ -42,67 +42,123 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <ng-container *ngIf="contactEditing; then editContact else viewContact"></ng-container>
+    </div>
+  </div>
 </div>
+
+<ng-template #editContact>
+  <div class="card">
+    <div class="card-header">
+      Editing Contact
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="mobilePhone">Mobile</label>
+          <input id="mobilePhone" name="mobilePhone" class="form-control" [(ngModel)]="patient.mobilePhone.value"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" class="form-control" [(ngModel)]="patient.email.value">
+        </div>
+      </form>
+      <div class="d-flex flex-row mb-2 mt-2">
+        <button class="btn btn-sm btn-primary mr-2">Save</button>
+        <button class="btn btn-sm btn-secondary" (click)="contactEditing = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewContact>
+  <div class="card">
+    <div class="card-header">
+      Contact
+      <a [routerLink]="" (click)="contactEditing = true" class="float-right">edit</a>
+    </div>
+    <div class="card-body">
+      <div class="form-row view-row">
+        <label for="mobile-view" class="col-sm-3 col-form-label">Mobile</label>
+        <div class="col-sm-9">
+          <input id="mobile-view" type="text" readonly class="form-control-plaintext"
+                 value="{{patient?.mobilePhone.value}}"/>
+        </div>
+      </div>
+      <div class="form-row view-row">
+        <label for="email-view" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input id="email-view" type="text" readonly class="form-control-plaintext" value="{{patient?.email.value}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
 
 <ng-template #editIdentity>
   <div class="card">
     <div class="card-header">
-      Editing Identity & Contact
+      Editing Identity
     </div>
     <div class="card-body">
       <form>
-        <div class="form-group row no-gutters mb-2">
-          <label for="givenName" class="col-sm-3 col-form-label">Given Name</label>
-          <div class="col-sm-9">
-            <input id="givenName" name="givenNames" class="form-control" [(ngModel)]="patient.givenNames"/>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" [(ngModel)]="patient.title"/>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="givenName">Given Names</label>
+            <input id="givenName" name="givenNames" class="form-control"
+                   [(ngModel)]="patient.givenNames"/>
           </div>
         </div>
-        <div class="form-group row no-gutters mb-2">
-          <label for="familyName" class="col-sm-3 col-form-label">Family Name</label>
-          <div class="col-sm-9">
-            <input id="familyName" name="familyName" class="form-control" [(ngModel)]="patient.familyName"/>
-          </div>
+        <div class="form-group">
+          <label for="familyName">Family Name</label>
+          <input id="familyName" name="familyName" class="form-control"
+                 [(ngModel)]="patient.familyName"/>
         </div>
-        <div class="form-group row no-gutters mb-2">
-          <label for="genderEdit" class="col-sm-3 col-form-label">Gender</label>
-          <div class="col-sm-9">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="birthday">Birthday</label>
+            <input id="birthday" name="birthday" class="form-control" [ngModel]="patient?.birthday" (ngModelChange)="patient.birthday = $event"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="genderEdit">Gender</label>
             <input id="genderEdit" name="genderEdit" class="form-control"/>
           </div>
         </div>
-        <div class="form-group row no-gutters">
-          <label for="birthday" class="col-sm-3 col-form-label">Birthday</label>
-          <div class="col-sm-9">
-            <input id="birthday" name="birthday" class="form-control" [(ngModel)]="patient.birthDate"/>
-          </div>
-        </div>
       </form>
+      <div class="d-flex flex-row mb-2 mt-2">
+        <button class="btn btn-sm btn-primary mr-2" (click)="savePatient()">Save</button>
+        <button class="btn btn-sm btn-secondary" (click)="identityEditing = false">Cancel</button>
+      </div>
     </div>
-
-    <button class="btn btn-sm btn-success">Save</button>
-    <button class="btn btn-sm btn-warning" (click)="identityEditing = false">Cancel</button>
   </div>
 </ng-template>
 
 <ng-template #viewIdentity>
   <div class="card">
     <div class="card-header">
-      Identity & Contact
+      Identity
       <a [routerLink]="" (click)="identityEditing = true" class="float-right">edit</a>
     </div>
     <div class="card-body">
-      <div class="form-group row no-gutters">
+      <div class="form-row no-gutters view-row">
         <label for="name" class="col-form-label col-sm-3">Name</label>
         <div class="col-sm-9">
           <input id="name" type="text" readonly class="form-control-plaintext" value="Blake Mumford"/>
         </div>
       </div>
-      <div class="form-group row no-gutters">
+      <div class="form-row no-gutters view-row">
         <label for="dob" class="col-sm-3 col-form-label">Birthday</label>
         <div class="col-sm-9">
-          <input id="dob" type="text" readonly class="form-control-plaintext" value="15/06/1990"/>
+          <input id="dob" type="text" readonly class="form-control-plaintext" value="{{patient?.birthday | date: 'dd/MM/yyyy'}}"/>
         </div>
       </div>
-      <div class="form-group row no-gutters">
+      <div class="form-row no-gutters view-row">
         <label for="gender" class="col-sm-3 col-form-label">Gender</label>
         <div class="col-sm-9">
           <input id="gender" type="text" readonly class="form-control-plaintext" value="Male"/>

@@ -5,7 +5,7 @@ export class Patient {
   title: string;
   givenNames: string;
   familyName: string;
-  birthDate: string;
+  birthday: Date;
   active: boolean;
   gender: string;
   mobilePhone: ContactPoint;

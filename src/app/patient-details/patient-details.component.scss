@@ -5,12 +5,38 @@ h4 {
 
 }
 
-.card-header{
-  padding: 5px 10px;
-  border-bottom: none;
+.card-header {
+  padding: 0.4em 0.8em;
+  border-bottom: solid 1px map_get($theme-colors, primary);
   font-weight: 500;
+  background-color: white;
 }
 
-.card-body{
-  padding: 0.4em 0.8em;
+.form-group{
+  margin-bottom: 0.4em;
 }
+
+.card-body {
+  padding: 0.4em 1em;
+}
+
+input {
+  padding: 4px 8px;
+}
+
+.view-row {
+  margin-bottom: 0.1em;
+  label {
+    padding: 0;
+  }
+  input {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+label {
+  margin-bottom: 0;
+  color: $grey-600;
+}
+

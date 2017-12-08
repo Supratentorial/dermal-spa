@@ -2,7 +2,7 @@
 
 $theme-colors: (
     primary: $light-blue-900,
-    secondary: white,
+    secondary: $grey-100,
     success: $green-200,
     info: #FBC02D,
     warning: #FF5722,
@@ -15,11 +15,15 @@ $title-font-family: 'Ubuntu', sans-serif;
 
 $btn-border-radius: 0px;
 
+$card-border-radius: 2px;
+
+$card-inner-border-radius: 2px;
+
+$card-border-width: 0;
+
 $input-border-radius: 0px;
 
 $input-focus-border-color: map_get($theme-colors, primary);
-
-$form-group-margin-bottom: 0.75rem;
 
 $input-btn-focus-box-shadow: none;
 

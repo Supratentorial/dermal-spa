@@ -16,6 +16,7 @@ export class PatientDetailsComponent implements OnInit {
   patient: Patient;
 
   identityEditing: boolean;
+  contactEditing: boolean;
 
   constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }
@@ -27,6 +28,13 @@ export class PatientDetailsComponent implements OnInit {
         this.patient = <Patient>patient;
         console.log(this.patient);
       });
+    });
+  }
+
+  savePatient() {
+    this.patientService.savePatient(this.patient).subscribe(() => {
+      this.identityEditing = false;
+      this.contactEditing = false;
     });
   }
 

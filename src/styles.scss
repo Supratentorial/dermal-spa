@@ -10,15 +10,6 @@ body {
   background-color: #EFF3F6;
 }
 
-.card {
-  border-radius: 0;
-  border: none;
-}
-
-.card-header {
-  background-color: $grey-50;
-}
-
 .container-fluid {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -40,6 +31,18 @@ body {
     height: 20px;
     fill: $grey-700;
   }
+}
+
+.edit-icon {
+  svg{
+    width: 15px;
+    height: 15px;
+    fill: $grey-500;
+  }
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.14);
 }
 
 /* You can add global styles to this file, and also import other style files */

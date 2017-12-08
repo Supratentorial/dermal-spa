@@ -33,7 +33,7 @@
                 <div class="form-group">
                   <label for="birthday">Birthday</label>
                   <input id="birthday" name="birthday" placeholder="dd/mm/yyyy" class="form-control" required
-                         [(ngModel)]="newPatient.birthDate" #birthday="ngModel"/>
+                         [(ngModel)]="newPatient.birthday" #birthday="ngModel"/>
                 </div>
                 <small [hidden]="birthday.valid || birthday.pristine">Birthday is required.</small>
               </div>
