@@ -3,6 +3,7 @@ import {Patient} from '../patient';
 import {PatientService} from '../patient.service';
 import {ContactPoint} from '../contact-point';
 import {Location} from '@angular/common';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-add-patient',
@@ -35,7 +36,7 @@ export class AddPatientComponent implements OnInit {
     familyName: '',
     givenNames: '',
     gender: '',
-    birthday: '',
+    birthday: moment().toDate(),
     mobilePhone: this.mobilePhone,
     email: this.emailAddress
   };

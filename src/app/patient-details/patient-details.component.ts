@@ -15,8 +15,6 @@ export class PatientDetailsComponent implements OnInit {
   patientId: number;
   patient: Patient;
 
-  identityEditing: boolean;
-  contactEditing: boolean;
 
   constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }
@@ -33,8 +31,6 @@ export class PatientDetailsComponent implements OnInit {
 
   savePatient() {
     this.patientService.savePatient(this.patient).subscribe(() => {
-      this.identityEditing = false;
-      this.contactEditing = false;
     });
   }
 

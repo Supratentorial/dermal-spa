@@ -21,6 +21,8 @@ import {PatientService} from './patient.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PatientBannerComponent } from './patient-banner/patient-banner.component';
+import { PatientIdentityComponent } from './patient-details/patient-identity/patient-identity.component';
+import { PatientContactComponent } from './patient-details/patient-contact/patient-contact.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { PatientBannerComponent } from './patient-banner/patient-banner.componen
     PageHeaderComponent,
     LoaderComponent,
     DashboardComponent,
-    PatientBannerComponent
+    PatientBannerComponent,
+    PatientIdentityComponent,
+    PatientContactComponent
   ],
   imports: [
     BrowserModule,

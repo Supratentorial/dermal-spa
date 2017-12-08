@@ -1,0 +1,73 @@
+<ng-container *ngIf="identityEditing; then editIdentity else viewIdentity"></ng-container>
+
+<ng-template #editIdentity>
+  <div class="card">
+    <div class="card-header">
+      Editing Identity
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" [(ngModel)]="title"/>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="givenName">Given Names</label>
+            <input id="givenName" name="givenNames" class="form-control"
+                   [(ngModel)]="givenNames"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="familyName">Family Name</label>
+          <input id="familyName" name="familyName" class="form-control"
+                 [(ngModel)]="patient.familyName"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="birthday">Birthday</label>
+            <input id="birthday" name="birthday" class="form-control" [(ngModel)]="birthday"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="genderEdit">Gender</label>
+            <input id="genderEdit" name="genderEdit" class="form-control"/>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex flex-row mb-2 mt-2">
+        <button class="btn btn-sm btn-primary mr-2" (click)="saveIdentityInfo()">Save</button>
+        <button class="btn btn-sm btn-secondary" (click)="identityEditing = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewIdentity>
+  <div class="card">
+    <div class="card-header">
+      Identity
+      <a [routerLink]="" (click)="identityEditing = true" class="float-right">edit</a>
+    </div>
+    <div class="card-body">
+      <div class="form-row no-gutters view-row">
+        <label for="name" class="col-form-label col-sm-3">Name</label>
+        <div class="col-sm-9">
+          <input id="name" type="text" readonly class="form-control-plaintext" value="Blake Mumford"/>
+        </div>
+      </div>
+      <div class="form-row no-gutters view-row">
+        <label for="dob" class="col-sm-3 col-form-label">Birthday</label>
+        <div class="col-sm-9">
+          <input id="dob" type="text" readonly class="form-control-plaintext" value="{{birthday}}"/>
+        </div>
+      </div>
+      <div class="form-row no-gutters view-row">
+        <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+        <div class="col-sm-9">
+          <input id="gender" type="text" readonly class="form-control-plaintext" value="Male"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
