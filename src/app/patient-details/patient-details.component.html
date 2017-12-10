@@ -44,7 +44,7 @@
   </div>
   <div class="row">
     <div class="col-lg-3">
-      <app-patient-contact [patient]="patient"></app-patient-contact>
+      <app-patient-contact [patient]="patient" (saveContactInfoEvent)="savePatient()"></app-patient-contact>
     </div>
   </div>
 </div>

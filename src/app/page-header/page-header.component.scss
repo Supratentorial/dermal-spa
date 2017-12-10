@@ -1,7 +1,7 @@
 @import '~sass-material-design-colors/palette.scss';
 
 .page-header {
-  background-color: white;
+  background-color: #263238;
   height: 51px;
   position: fixed;
   top: 0;
@@ -11,9 +11,9 @@
 }
 
 input {
-  border-radius: 2em;
-  background-color: #EFF3F6;
-  border: none;
+  border-radius: 0.5em;
+  background-color: #263238;
+  border: 1px solid $grey-600;
   padding: 4px 16px;
   &:focus {
     outline: none;

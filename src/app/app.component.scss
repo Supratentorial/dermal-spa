@@ -3,9 +3,9 @@
 $side-nav-color: #263238;
 $side-nav-font-color: $grey-500;
 $side-footer-color: darken($side-nav-color, 2.5%);
-$side-header-color: white;
+$side-header-color: map_get($theme-colors, primary);
 $side-divider-color: #323C42;
-$side-header-font-color: $grey-700;
+$side-header-font-color: white;
 
 .side-nav {
   width: 200px;
@@ -23,8 +23,7 @@ $side-header-font-color: $grey-700;
   height: 50px;
   background-color: $side-header-color;
   width: 200px;
-  border-right: 1px solid $grey-300;
-  border-bottom: 1px solid $grey-300;
+  border: none;
   cursor: pointer;
   &:focus{
     outline: 0;

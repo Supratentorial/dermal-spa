@@ -25,7 +25,7 @@ export class AddPatientComponent implements OnInit {
     id: 0,
     rank: 2,
     use: 'home',
-    system: 'email',
+    system: 'emailString',
     value: ''
   };
 
@@ -36,7 +36,7 @@ export class AddPatientComponent implements OnInit {
     familyName: '',
     givenNames: '',
     gender: '',
-    birthday: moment().toDate(),
+    birthDate: moment().toDate(),
     mobilePhone: this.mobilePhone,
     email: this.emailAddress
   };

@@ -18,8 +18,9 @@ export class PatientIdentityComponent implements OnInit, OnChanges {
   title: string;
   givenNames: string;
   familyName: string;
-  birthday: string;
+  birthDate: string;
   gender: string;
+  genderOptions: string[] = ['Male', 'Female', 'Other'];
 
   identityEditing: boolean;
 
@@ -31,7 +32,7 @@ export class PatientIdentityComponent implements OnInit, OnChanges {
       this.title = this.patient.title;
       this.givenNames = this.patient.givenNames;
       this.familyName = this.patient.familyName;
-      this.birthday = moment(this.patient.birthday).format('DD/MM/YYYY');
+      this.birthDate = moment(this.patient.birthDate).format('DD/MM/YYYY');
       this.gender = this.patient.gender;
     }
   }
@@ -43,7 +44,8 @@ export class PatientIdentityComponent implements OnInit, OnChanges {
     this.patient.title = this.title;
     this.patient.givenNames = this.givenNames;
     this.patient.familyName = this.familyName;
-    this.patient.birthday = moment(this.birthday, 'DD-MM-YYYY').toDate();
+    console.log(this.birthDate);
+    this.patient.birthDate = moment(this.birthDate, 'DD-MM-YYYY').utcOffset(0).toDate();
     this.patient.gender = this.gender;
     this.identityEditing = false;
     this.saveIdentityInfoEvent.next();

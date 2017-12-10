@@ -21,16 +21,21 @@
         <div class="form-group">
           <label for="familyName">Family Name</label>
           <input id="familyName" name="familyName" class="form-control"
-                 [(ngModel)]="patient.familyName"/>
+                 [(ngModel)]="familyName"/>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="birthday">Birthday</label>
-            <input id="birthday" name="birthday" class="form-control" [(ngModel)]="birthday"/>
+            <input id="birthday" name="birthday" class="form-control" [(ngModel)]="birthDate"/>
           </div>
           <div class="form-group col-md-6">
             <label for="genderEdit">Gender</label>
-            <input id="genderEdit" name="genderEdit" class="form-control"/>
+            <select id="genderEdit" name="genderEdit" class="form-control">
+              <option disabled selected value style="display: none"></option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
           </div>
         </div>
       </form>
@@ -58,7 +63,7 @@
       <div class="form-row no-gutters view-row">
         <label for="dob" class="col-sm-3 col-form-label">Birthday</label>
         <div class="col-sm-9">
-          <input id="dob" type="text" readonly class="form-control-plaintext" value="{{birthday}}"/>
+          <input id="dob" type="text" readonly class="form-control-plaintext" value="{{birthDate}}"/>
         </div>
       </div>
       <div class="form-row no-gutters view-row">

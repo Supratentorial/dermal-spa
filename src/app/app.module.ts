@@ -23,6 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { PatientBannerComponent } from './patient-banner/patient-banner.component';
 import { PatientIdentityComponent } from './patient-details/patient-identity/patient-identity.component';
 import { PatientContactComponent } from './patient-details/patient-contact/patient-contact.component';
+import { InboxComponent } from './dashboard/inbox/inbox.component';
+import { AgendaComponent } from './dashboard/agenda/agenda.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { PatientContactComponent } from './patient-details/patient-contact/patie
     DashboardComponent,
     PatientBannerComponent,
     PatientIdentityComponent,
-    PatientContactComponent
+    PatientContactComponent,
+    InboxComponent,
+    AgendaComponent
   ],
   imports: [
     BrowserModule,
