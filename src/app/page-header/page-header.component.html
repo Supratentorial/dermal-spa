@@ -1,21 +1,18 @@
 <ng-template #resultTemplate let-r="result" let-t="term">
   <div>{{r?.givenNames}} {{r?.familyName}}</div>
-  <div>{{r?.mobileString.value}}</div>
 </ng-template>
 
-<div class="page-header row align-items-center">
-  <div class="col-sm">
-    <ng-content></ng-content>
-  </div>
-  <div class="col-sm">
+<div class="page-header">
+  <div class="d-flex flex-row align-items-center" style="height: 100%">
+    <div class="mr-auto ml-3">
+      <ng-content></ng-content>
+    </div>
     <input #patientSearch id="patient-search" [(ngModel)]="selectedPatient" [ngbTypeahead]="searchPatients"
            placeholder="Search patients..." [resultTemplate]="resultTemplate"
-           (selectItem)="onSelect($event, patientSearch);patientSearch.value='' "/>
-  </div>
-  <div class="col-sm">
-    <!--<div class="page-header-icon" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>-->
-    <button class="btn btn-sm btn-primary" *ngIf="!isAuthorized" (click)="login()">Login</button>
-    <button class="btn btn-sm btn-primary" *ngIf="isAuthorized" (click)="logout()">Logout</button>
+           (selectItem)="onSelect($event, patientSearch);patientSearch.value='' " class="mr-3"/>
+    <div class="page-header-icon mr-3" [inlineSVG]="'assets/svg/sprites.svg#notifications'"></div>
+    <button class="btn btn-sm btn-primary mr-3" *ngIf="!isAuthorized" (click)="login()">Login</button>
+    <button class="btn btn-sm btn-primary mr-3" *ngIf="isAuthorized" (click)="logout()">Logout</button>
   </div>
 </div>
 

@@ -30,7 +30,8 @@ export class PatientDetailsComponent implements OnInit {
   }
 
   savePatient() {
-    this.patientService.savePatient(this.patient).subscribe(() => {
+    this.patientService.savePatient(this.patient).subscribe((patient: Patient) => {
+      this.patient = patient;
     });
   }
 

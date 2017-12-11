@@ -1,13 +1,14 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {Patient} from '../../patient';
 import * as moment from 'moment';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-patient-identity',
   templateUrl: './patient-identity.component.html',
   styleUrls: ['../patient-details.component.scss']
 })
-export class PatientIdentityComponent implements OnInit, OnChanges {
+export class PatientIdentityComponent implements OnInit {
 
   @Input()
   patient: Patient;
@@ -15,11 +16,11 @@ export class PatientIdentityComponent implements OnInit, OnChanges {
   @Output()
   saveIdentityInfoEvent = new EventEmitter();
 
-  title: string;
-  givenNames: string;
-  familyName: string;
-  birthDate: string;
-  gender: string;
+  titleString: string;
+  givenNamesString: string;
+  familyNameString: string;
+  birthDateString: string;
+  genderString: string;
   genderOptions: string[] = ['Male', 'Female', 'Other'];
 
   identityEditing: boolean;
@@ -27,26 +28,25 @@ export class PatientIdentityComponent implements OnInit, OnChanges {
   constructor() {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['patient']) {
-      this.title = this.patient.title;
-      this.givenNames = this.patient.givenNames;
-      this.familyName = this.patient.familyName;
-      this.birthDate = moment(this.patient.birthDate).format('DD/MM/YYYY');
-      this.gender = this.patient.gender;
-    }
-  }
-
   ngOnInit() {
   }
 
-  saveIdentityInfo() {
-    this.patient.title = this.title;
-    this.patient.givenNames = this.givenNames;
-    this.patient.familyName = this.familyName;
-    console.log(this.birthDate);
-    this.patient.birthDate = moment(this.birthDate, 'DD-MM-YYYY').utcOffset(0).toDate();
-    this.patient.gender = this.gender;
+  editIdentityInfo() {
+    this.identityEditing = true;
+    this.titleString = this.patient.title;
+    this.familyNameString = this.patient.familyName;
+    this.givenNamesString = this.patient.givenNames;
+    this.birthDateString = moment(this.patient.birthDate).format('DD/MM/YYYY');
+    this.genderString = this.patient.gender;
+  }
+
+  saveIdentityInfo(identityForm: NgForm) {
+    this.patient.title = this.titleString;
+    this.patient.givenNames = this.givenNamesString;
+    this.patient.familyName = this.familyNameString;
+    console.log(this.birthDateString);
+    this.patient.birthDate = moment(this.birthDateString, 'DD-MM-YYYY').utcOffset(0).toDate();
+    this.patient.gender = this.genderString;
     this.identityEditing = false;
     this.saveIdentityInfoEvent.next();
   }

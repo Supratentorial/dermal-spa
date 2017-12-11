@@ -37,6 +37,7 @@ export class AddPatientComponent implements OnInit {
     givenNames: '',
     gender: '',
     birthDate: moment().toDate(),
+    age: '',
     mobilePhone: this.mobilePhone,
     email: this.emailAddress
   };

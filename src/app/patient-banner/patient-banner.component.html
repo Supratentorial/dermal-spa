@@ -1,5 +1,18 @@
 <div id="banner" class="container-fluid">
-  <div class="row"></div>
-  <div id="name">{{patient?.givenNames}} {{patient?.familyName}}</div><span *ngIf="patient?.title">, ({{patient?.title}})</span>
-  <div>34 years</div>
+  <div class="row">
+    <div class="col-lg">
+      <div id="name">
+        <span *ngIf="patient?.title">{{patient?.title}}</span>
+        <span>{{patient?.givenNames}}</span>
+        <span>{{patient?.familyName}}</span>
+      </div>
+      <div>
+        <span>{{patient?.birthDate|date: 'dd MMMM yyyy'}}</span>
+        <span>{{patient?.age}}</span>
+        <span>Male</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
