@@ -1,0 +1,49 @@
+<ng-container *ngIf="editingAllergy; then editAllergy else viewAllergy"></ng-container>
+
+<ng-template #viewAllergy>
+  <div class="card">
+    <div class="card-header">
+      Allergies
+      <a [routerLink]="" class="float-right" (click)="addAllergy()">edit</a>
+    </div>
+    <div class="card-body">
+      Allergy status not recorded.
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #editAllergy>
+  <div class="card">
+    <div class="card-header">
+      Editing Allergy
+    </div>
+    <div class="card-body">
+      <form>
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span>Nil known drug allergies</span>
+        </label>
+        <div class="form-row">
+          <label for="allergySearch">Substance</label>
+          <input id="allergySearch" type="text" class="form-control" [ngbTypeahead]="searchSubstances"
+                 [resultTemplate]="typeAheadTemplate" [inputFormatter]="formatter"/>
+        </div>
+        <div class="form-row">
+          <label for="reaction">Reaction</label>
+          <input id="reaction" class="form-control"/>
+        </div>
+        <div class="form-row">
+          <label for="category">Category</label>
+          <input id="category" class="form-control"/>
+        </div>
+        <button class="btn btn-sm btn-primary">Save</button>
+        <button class="btn btn-sm btn-secondary" (click)="editingAllergy=!editAllergy">Cancel</button>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #typeAheadTemplate let-r="result" let-t="term">
+  {{r.display}}
+</ng-template>

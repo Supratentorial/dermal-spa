@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
-import {Patient} from '../../patient';
+import {Patient} from '../../models/patient';
 import * as moment from 'moment';
 import {NgForm} from '@angular/forms';
 
@@ -36,6 +36,7 @@ export class PatientIdentityComponent implements OnInit {
     this.titleString = this.patient.title;
     this.familyNameString = this.patient.familyName;
     this.givenNamesString = this.patient.givenNames;
+    console.log(this.patient.birthDate);
     this.birthDateString = moment(this.patient.birthDate).format('DD/MM/YYYY');
     this.genderString = this.patient.gender;
   }
@@ -44,8 +45,7 @@ export class PatientIdentityComponent implements OnInit {
     this.patient.title = this.titleString;
     this.patient.givenNames = this.givenNamesString;
     this.patient.familyName = this.familyNameString;
-    console.log(this.birthDateString);
-    this.patient.birthDate = moment(this.birthDateString, 'DD-MM-YYYY').utcOffset(0).toDate();
+    this.patient.birthDate = moment.utc(this.birthDateString, 'DD-MM-YYYY').toDate();
     this.patient.gender = this.genderString;
     this.identityEditing = false;
     this.saveIdentityInfoEvent.next();

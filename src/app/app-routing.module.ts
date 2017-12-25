@@ -7,6 +7,8 @@ import {PatientDetailsComponent} from './patient-details/patient-details.compone
 import {AddPatientComponent} from './add-patient/add-patient.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {CallbackComponent} from './callback/callback.component';
+import {AppointmentDashboardComponent} from './appointments/appointment-dashboard/appointment-dashboard.component';
+import {SettingsDashboardComponent} from './settings/settings-dashboard/settings-dashboard.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +17,8 @@ const appRoutes: Routes = [
   {path: 'patients/add-patient', component: AddPatientComponent},
   {path: 'patients/:patientId/details', component: PatientDetailsComponent},
   {path: 'billing', component: BillingDashboardComponent},
+  {path: 'appointments', component: AppointmentDashboardComponent},
+  {path: 'settings', component: SettingsDashboardComponent},
   {path: 'callback', component: CallbackComponent}
 ];
 

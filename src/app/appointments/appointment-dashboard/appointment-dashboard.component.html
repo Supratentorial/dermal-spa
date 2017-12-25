@@ -1,0 +1,28 @@
+<app-page-header>
+  <button class="btn btn-sm btn-primary">Add Appointment</button>
+</app-page-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <div class="card">
+        <div class="card-header">Providers</div>
+        <div class="card-body">
+          <label>Dr Blake Mumford</label>
+          <input type="checkbox"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="card">
+        <div class="card-body no-padding" >
+          <div class="schedule">
+            <app-slot *ngFor="let slot of appointmentSlots"></app-slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

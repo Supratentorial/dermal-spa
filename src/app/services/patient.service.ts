@@ -1,8 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
 import {Response} from '@angular/http';
-import {Patient} from './patient';
-import {APP_CONFIG} from './app.config';
-import {IAppConfig} from './iapp.config';
+import {Patient} from '../models/patient';
+import {APP_CONFIG} from '../app.config';
+import {IAppConfig} from '../iapp.config';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpParams} from '@angular/common/http';
 

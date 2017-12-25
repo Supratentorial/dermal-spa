@@ -6,10 +6,10 @@
         <span>{{patient?.givenNames}}</span>
         <span>{{patient?.familyName}}</span>
       </div>
-      <div>
-        <span>{{patient?.birthDate|date: 'dd MMMM yyyy'}}</span>
-        <span>{{patient?.age}}</span>
-        <span>Male</span>
+      <div class="d-flex align-items-center">
+        <div class="mr-3">{{patient?.birthDate|date: 'dd MMMM yyyy'}}</div>
+        <div class="mr-3">{{patient?.age}}</div>
+        <div>{{patient?.gender}}</div>
       </div>
     </div>
   </div>

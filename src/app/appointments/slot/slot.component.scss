@@ -1,0 +1,8 @@
+@import "../../../assets/styles/variables";
+
+.appointment-slot {
+  min-height: 40px;
+  width: 200px;
+  border: 1px solid $grey-300;
+  border-bottom: none;
+}

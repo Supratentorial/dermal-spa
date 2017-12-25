@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Patient} from '../patient';
-import {PatientService} from '../patient.service';
-import {ContactPoint} from '../contact-point';
+import {Patient} from '../models/patient';
+import {PatientService} from '../services/patient.service';
+import {ContactPoint} from '../models/contact-point';
 import {Location} from '@angular/common';
 import * as moment from 'moment';
 

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Patient} from '../../patient';
+import {Patient} from '../../models/patient';
 import {NgForm} from '@angular/forms';
 
 @Component({

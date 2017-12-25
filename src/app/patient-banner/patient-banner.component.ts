@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Patient} from '../patient';
+import {Patient} from '../models/patient';
 
 @Component({
   selector: 'app-patient-banner',

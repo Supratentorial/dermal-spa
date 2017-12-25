@@ -1,5 +1,6 @@
 <ng-template #resultTemplate let-r="result" let-t="term">
   <div>{{r?.givenNames}} {{r?.familyName}}</div>
+  <div>{{r?.birthDate | date: 'dd/MM/yyyy'}}</div>
 </ng-template>
 
 <div class="page-header">

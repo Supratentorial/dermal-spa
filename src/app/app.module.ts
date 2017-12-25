@@ -17,7 +17,7 @@ import {AddPatientComponent} from './add-patient/add-patient.component';
 import {PageHeaderComponent} from './page-header/page-header.component';
 import {LoaderComponent} from './loader/loader.component';
 import {APP_CONFIG, AppConfig} from './app.config';
-import {PatientService} from './patient.service';
+import {PatientService} from './services/patient.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PatientBannerComponent } from './patient-banner/patient-banner.component';
@@ -25,6 +25,14 @@ import { PatientIdentityComponent } from './patient-details/patient-identity/pat
 import { PatientContactComponent } from './patient-details/patient-contact/patient-contact.component';
 import { InboxComponent } from './dashboard/inbox/inbox.component';
 import { AgendaComponent } from './dashboard/agenda/agenda.component';
+import { AppointmentDashboardComponent } from './appointments/appointment-dashboard/appointment-dashboard.component';
+import { SettingsDashboardComponent } from './settings/settings-dashboard/settings-dashboard.component';
+import { CalendarSettingsComponent } from './settings/calendar-settings/calendar-settings.component';
+import {CalendarSettingsService} from './services/calendar-settings.service';
+import { SlotComponent } from './appointments/slot/slot.component';
+import { AppointmentDetailComponent } from './appointments/appointment-detail/appointment-detail.component';
+import { PatientAllergyComponent } from './patient-details/patient-allergy/patient-allergy.component';
+import {AdverseReactionAgentService} from './services/adverse-reaction-agent.service';
 
 @NgModule({
   declarations: [
@@ -41,8 +49,15 @@ import { AgendaComponent } from './dashboard/agenda/agenda.component';
     PatientIdentityComponent,
     PatientContactComponent,
     InboxComponent,
-    AgendaComponent
+    AgendaComponent,
+    AppointmentDashboardComponent,
+    SettingsDashboardComponent,
+    CalendarSettingsComponent,
+    SlotComponent,
+    AppointmentDetailComponent,
+    PatientAllergyComponent
   ],
+  entryComponents: [AppointmentDetailComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -53,7 +68,7 @@ import { AgendaComponent } from './dashboard/agenda/agenda.component';
     InlineSVGModule,
     AuthModule.forRoot()
   ],
-  providers: [{provide: APP_CONFIG, useValue: AppConfig}, PatientService, OidcSecurityService],
+  providers: [{provide: APP_CONFIG, useValue: AppConfig}, PatientService, OidcSecurityService, CalendarSettingsService, AdverseReactionAgentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,12 +1,12 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Patient} from '../patient';
+import {Patient} from '../models/patient';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import {PatientService} from '../patient.service';
+import {PatientService} from '../services/patient.service';
 import {OidcSecurityService} from 'angular-auth-oidc-client';
 import {Subscription} from 'rxjs/Subscription';
 import {Router} from '@angular/router';
@@ -38,7 +38,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isAuthorizedSubscription = this.oidcSecurityService.getIsAuthorized().subscribe((isAuthorized: boolean) => {
       this.isAuthorized = isAuthorized;
-      console.log(this.isAuthorized);
     });
   }
 
@@ -74,7 +73,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
       .switchMap(searchTerm =>
         this.patientService.getPatients(searchTerm)
           .catch(() => {
-            console.log('patient search failed');
             return Observable.of([]);
           }))
       .do(() => this.searching = false)

@@ -1,8 +1,12 @@
 @import '../node_modules/sass-material-design-colors/palette.scss';
+// Fonts
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
-// Custom overrides
+// Custom variables
 @import 'assets/styles/variables';
+// Bootstrap SCSS
 @import '~bootstrap/scss/bootstrap.scss';
+// Custom overrides
+@import 'assets/styles/list-group';
 
 body {
   padding-top: 50px;
@@ -17,7 +21,8 @@ body {
 
 .icon {
   margin-right: 10px;
-  line-height: 22px;
+  width: 22px;
+  height: 22px;
   svg {
     width: 22px;
     height: 22px;
@@ -26,15 +31,17 @@ body {
 }
 
 .page-header-icon {
+  width: 22px;
+  height: 22px;
   svg {
-    width: 20px;
-    height: 20px;
-    fill: $grey-700;
+    width: 22px;
+    height: 22px;
+    fill: white;
   }
 }
 
 .card {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.14);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
 }
 
 .card-header {
@@ -44,8 +51,20 @@ body {
   background-color: white;
 }
 
-.card-body{
+.card-body {
   padding: 0.4em 1em;
 }
+
+.no-padding {
+  padding: 0;
+}
+
+.dropdown-menu{
+  background-color: black;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* You can add global styles to this file, and also import other style files */
