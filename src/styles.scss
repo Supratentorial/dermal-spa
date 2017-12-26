@@ -7,6 +7,10 @@
 @import '~bootstrap/scss/bootstrap.scss';
 // Custom overrides
 @import 'assets/styles/list-group';
+@import 'assets/styles/cards.scss';
+// My styles
+@import 'assets/styles/page-header.scss';
+@import 'assets/styles/forms.scss';
 
 body {
   padding-top: 50px;
@@ -30,39 +34,7 @@ body {
   }
 }
 
-.page-header-icon {
-  width: 22px;
-  height: 22px;
-  svg {
-    width: 22px;
-    height: 22px;
-    fill: white;
-  }
-}
-
-.card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
-}
-
-.card-header {
-  padding: 0.4em 0.8em;
-  border-bottom: solid 1px map_get($theme-colors, primary);
-  font-weight: 500;
-  background-color: white;
-}
-
-.card-body {
-  padding: 0.4em 1em;
-}
-
 .no-padding {
-  padding: 0;
-}
-
-.dropdown-menu{
-  background-color: black;
-  width: 300px;
-  margin: 0;
   padding: 0;
 }
 

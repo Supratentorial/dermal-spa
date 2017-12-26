@@ -1,15 +1,5 @@
 @import '~sass-material-design-colors/palette.scss';
 
-.page-header {
-  background-color: #263238;
-  height: 51px;
-  position: fixed;
-  top: 0;
-  border-bottom: $grey-300 solid 1px;
-  margin: 0;
-  width: calc(100% - 200px);
-}
-
 input {
   border-radius: 0.3em;
   background-color: black;

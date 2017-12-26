@@ -39,7 +39,9 @@ export class AddPatientComponent implements OnInit {
     birthDate: moment().toDate(),
     age: '',
     mobilePhone: this.mobilePhone,
-    email: this.emailAddress
+    email: this.emailAddress,
+    residentialAddress: null,
+    postalAddress: null
   };
 
   titles: string[] = [

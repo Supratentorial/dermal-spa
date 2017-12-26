@@ -7,8 +7,10 @@
         <span>{{patient?.familyName}}</span>
       </div>
       <div class="d-flex align-items-center">
-        <div class="mr-3">{{patient?.birthDate|date: 'dd MMMM yyyy'}}</div>
-        <div class="mr-3">{{patient?.age}}</div>
+        <div class="mr-2">{{patient?.birthDate|date: 'dd MMMM yyyy'}}</div>
+        <div class="mr-2">&bull;</div>
+        <div class="mr-2">{{patient?.age}}</div>
+        <div class="mr-2">&bull;</div>
         <div>{{patient?.gender}}</div>
       </div>
     </div>

@@ -5,7 +5,7 @@
       Editing Contact
     </div>
     <div class="card-body">
-      <form #contactForm="ngForm" (ngSubmit)="saveContactInfo(contactForm)">
+      <form #contactForm="ngForm" (ngSubmit)="saveContactInfo(contactForm)" class="edit-form">
         <div class="form-group">
           <label for="mobilePhone">Mobile</label>
           <input id="mobilePhone" name="mobilePhone" class="form-control" [(ngModel)]="mobileString"/>
@@ -14,21 +14,27 @@
           <label for="email">Email</label>
           <input id="email" name="email" class="form-control" [(ngModel)]="emailString">
         </div>
-        <hr/>
+        <hr class="mb-1"/>
+        <label>Residential Address</label>
         <div class="form-row">
           <div class="col-4">
-            <input type="text" class="form-control" placeholder="Unit"/>
+            <input type="text" name="residentialUnit" class="form-control" placeholder="Unit" [(ngModel)]="residentialUnit"/>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" placeholder="Street"/>
+            <input type="text" name="residentialStreetName" class="form-control" placeholder="Street" [(ngModel)]="residentialStreetName"/>
           </div>
         </div>
-        <div class="form-row mt-3">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Suburb"/>
+        <div class="form-row mt-2">
+          <div class="col-8">
+            <input type="text" name="residentialCity" class="form-control" placeholder="Suburb" [(ngModel)]="residentialCity"/>
           </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Postcode"/>
+          <div class="col-4">
+            <input type="text" name="residentialState" class="form-control" placeholder="State" [(ngModel)]="residentialState"/>
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="col-4">
+            <input type="text" name="residentialPostalCode" class="form-control" placeholder="Postcode" [(ngModel)]="residentialPostalCode"/>
           </div>
         </div>
         <div class="d-flex flex-row mb-2 mt-2">

@@ -1,0 +1,14 @@
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+.card-header {
+  padding: 0.4em 0.8em;
+  border-bottom: solid 1px map_get($theme-colors, primary);
+  font-weight: 500;
+  background-color: white;
+}
+
+.card-body {
+  padding: 0.4em 1em;
+}

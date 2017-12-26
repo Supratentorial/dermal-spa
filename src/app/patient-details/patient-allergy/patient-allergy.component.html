@@ -18,27 +18,35 @@
       Editing Allergy
     </div>
     <div class="card-body">
-      <form>
+      <form class="edit-form">
         <label class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input">
           <span class="custom-control-indicator"></span>
           <span>Nil known drug allergies</span>
         </label>
         <div class="form-row">
-          <label for="allergySearch">Substance</label>
-          <input id="allergySearch" type="text" class="form-control" [ngbTypeahead]="searchSubstances"
-                 [resultTemplate]="typeAheadTemplate" [inputFormatter]="formatter"/>
+          <div class="form-group col-12">
+            <label for="allergySearch">Substance</label>
+            <input id="allergySearch" type="text" class="form-control" [ngbTypeahead]="searchSubstances"
+                   [resultTemplate]="typeAheadTemplate" [inputFormatter]="formatter"/>
+          </div>
         </div>
         <div class="form-row">
-          <label for="reaction">Reaction</label>
-          <input id="reaction" class="form-control"/>
+          <div class="form-group col-12">
+            <label for="reaction">Reaction</label>
+            <input id="reaction" class="form-control"/>
+          </div>
         </div>
         <div class="form-row">
-          <label for="category">Category</label>
-          <input id="category" class="form-control"/>
+          <div class="form-group col-12">
+            <label for="category">Category</label>
+            <input id="category" class="form-control"/>
+          </div>
         </div>
-        <button class="btn btn-sm btn-primary">Save</button>
-        <button class="btn btn-sm btn-secondary" (click)="editingAllergy=!editAllergy">Cancel</button>
+        <div class="d-flex flex-row mb-2 mt-2">
+          <button class="btn btn-sm btn-primary mr-2">Save</button>
+          <button class="btn btn-sm btn-secondary" (click)="editingAllergy=!editAllergy">Cancel</button>
+        </div>
       </form>
     </div>
   </div>

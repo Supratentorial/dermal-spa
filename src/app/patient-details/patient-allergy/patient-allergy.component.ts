@@ -18,6 +18,7 @@ export class PatientAllergyComponent implements OnInit {
   @Input()
   patient: Patient;
   searching = false;
+  searchFailed = false;
   editingAllergy = false;
   addingAllergy = false;
 
@@ -32,8 +33,9 @@ export class PatientAllergyComponent implements OnInit {
       .debounceTime(200)
       .distinctUntilChanged()
       .do(() => this.searching = true)
-      .switchMap(searchTerm =>
+      .switchMap(searchTerm => searchTerm.length < 3 ? Observable.of([]) :
         this.substancesService.searchSubstances(searchTerm)
+          .do(() => this.searchFailed = false)
           .catch(() => {
             return Observable.of([]);
           }))
@@ -46,5 +48,7 @@ export class PatientAllergyComponent implements OnInit {
   saveAllergyInfo() {
 
   }
+
+  formatter = (value: any) => value.display;
 
 }

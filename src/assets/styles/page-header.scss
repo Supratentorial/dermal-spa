@@ -1,0 +1,31 @@
+.page-header-icon {
+  width: 22px;
+  height: 22px;
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+}
+
+
+
+.page-header {
+  background-color: #263238;
+  height: 51px;
+  position: fixed;
+  top: 0;
+  border-bottom: $grey-300 solid 1px;
+  margin: 0;
+  width: calc(100% - 200px);
+
+  .dropdown-menu{
+    background-color: black;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    button{
+      padding: 4px 16px;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {ContactPoint} from './contact-point';
+import {Address} from './address';
 
 export class Patient {
   id: number;
@@ -11,4 +12,6 @@ export class Patient {
   gender: string;
   mobilePhone: ContactPoint;
   email: ContactPoint;
+  residentialAddress: Address;
+  postalAddress: Address;
 }
