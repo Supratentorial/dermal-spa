@@ -10,8 +10,8 @@ export class Patient {
   age: string;
   active: boolean;
   gender: string;
-  mobilePhone: ContactPoint;
-  email: ContactPoint;
+  mobilePhone?: ContactPoint;
+  email?: ContactPoint;
   residentialAddress: Address;
   postalAddress: Address;
 }

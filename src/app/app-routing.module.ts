@@ -1,4 +1,3 @@
-
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PatientDashboardComponent} from './patient-dashboard/patient-dashboard.component';
@@ -9,6 +8,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {CallbackComponent} from './callback/callback.component';
 import {AppointmentDashboardComponent} from './appointments/appointment-dashboard/appointment-dashboard.component';
 import {SettingsDashboardComponent} from './settings/settings-dashboard/settings-dashboard.component';
+import {UserSettingsComponent} from './settings/user-settings/user-settings.component';
+import {CalendarSettingsComponent} from './settings/calendar-settings/calendar-settings.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,7 +19,13 @@ const appRoutes: Routes = [
   {path: 'patients/:patientId/details', component: PatientDetailsComponent},
   {path: 'billing', component: BillingDashboardComponent},
   {path: 'appointments', component: AppointmentDashboardComponent},
-  {path: 'settings', component: SettingsDashboardComponent},
+  {
+    path: 'settings', component: SettingsDashboardComponent, children: [
+      {path: '', redirectTo: 'calendar-settings', pathMatch: 'full'},
+      {path: 'user-settings', component: UserSettingsComponent},
+      {path: 'calendar-settings', component: CalendarSettingsComponent}
+    ]
+  },
   {path: 'callback', component: CallbackComponent}
 ];
 

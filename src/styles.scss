@@ -9,6 +9,7 @@
 @import 'assets/styles/list-group';
 @import 'assets/styles/cards.scss';
 // My styles
+@import 'assets/styles/buttons.scss';
 @import 'assets/styles/page-header.scss';
 @import 'assets/styles/forms.scss';
 
@@ -31,6 +32,23 @@ body {
     width: 22px;
     height: 22px;
     fill: currentColor;
+  }
+}
+
+.banner-icon{
+  height: 20px;
+  width: 25px;
+  color: $grey-500;
+  svg {
+    width: 25px;
+    height: 20px;
+    fill: currentColor;
+  }
+  &.male{
+    color: $blue-700;
+  }
+  &.female{
+    color: $purple-700;
   }
 }
 

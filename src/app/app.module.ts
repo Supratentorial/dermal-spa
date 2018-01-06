@@ -20,19 +20,23 @@ import {APP_CONFIG, AppConfig} from './app.config';
 import {PatientService} from './services/patient.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
-import { PatientBannerComponent } from './patient-banner/patient-banner.component';
-import { PatientIdentityComponent } from './patient-details/patient-identity/patient-identity.component';
-import { PatientContactComponent } from './patient-details/patient-contact/patient-contact.component';
-import { InboxComponent } from './dashboard/inbox/inbox.component';
-import { AgendaComponent } from './dashboard/agenda/agenda.component';
-import { AppointmentDashboardComponent } from './appointments/appointment-dashboard/appointment-dashboard.component';
-import { SettingsDashboardComponent } from './settings/settings-dashboard/settings-dashboard.component';
-import { CalendarSettingsComponent } from './settings/calendar-settings/calendar-settings.component';
+import {PatientBannerComponent} from './patient-banner/patient-banner.component';
+import {PatientIdentityComponent} from './patient-details/patient-identity/patient-identity.component';
+import {PatientContactComponent} from './patient-details/patient-contact/patient-contact.component';
+import {InboxComponent} from './dashboard/inbox/inbox.component';
+import {AgendaComponent} from './dashboard/agenda/agenda.component';
+import {AppointmentDashboardComponent} from './appointments/appointment-dashboard/appointment-dashboard.component';
+import {SettingsDashboardComponent} from './settings/settings-dashboard/settings-dashboard.component';
+import {CalendarSettingsComponent} from './settings/calendar-settings/calendar-settings.component';
 import {CalendarSettingsService} from './services/calendar-settings.service';
-import { SlotComponent } from './appointments/slot/slot.component';
-import { AppointmentDetailComponent } from './appointments/appointment-detail/appointment-detail.component';
-import { PatientAllergyComponent } from './patient-details/patient-allergy/patient-allergy.component';
+import {SlotComponent} from './appointments/slot/slot.component';
+import {AppointmentDetailComponent} from './appointments/appointment-detail/appointment-detail.component';
+import {PatientAllergyComponent} from './patient-details/patient-allergy/patient-allergy.component';
 import {AdverseReactionAgentService} from './services/adverse-reaction-agent.service';
+import {UserSettingsComponent} from './settings/user-settings/user-settings.component';
+import {UserService} from './services/user.service';
+import { UserListItemComponent } from './settings/user-list-item/user-list-item.component';
+import { PortalInviteComponent } from './patient-portal/portal-invite/portal-invite.component';
 
 @NgModule({
   declarations: [
@@ -55,9 +59,12 @@ import {AdverseReactionAgentService} from './services/adverse-reaction-agent.ser
     CalendarSettingsComponent,
     SlotComponent,
     AppointmentDetailComponent,
-    PatientAllergyComponent
+    PatientAllergyComponent,
+    UserSettingsComponent,
+    UserListItemComponent,
+    PortalInviteComponent
   ],
-  entryComponents: [AppointmentDetailComponent],
+  entryComponents: [AppointmentDetailComponent, PortalInviteComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -68,7 +75,15 @@ import {AdverseReactionAgentService} from './services/adverse-reaction-agent.ser
     InlineSVGModule,
     AuthModule.forRoot()
   ],
-  providers: [{provide: APP_CONFIG, useValue: AppConfig}, PatientService, OidcSecurityService, CalendarSettingsService, AdverseReactionAgentService],
+  providers: [
+    {provide: APP_CONFIG, useValue: AppConfig},
+    PatientService,
+    OidcSecurityService,
+    CalendarSettingsService,
+    AdverseReactionAgentService,
+    UserService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {

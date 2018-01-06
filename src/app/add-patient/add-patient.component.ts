@@ -12,37 +12,14 @@ import * as moment from 'moment';
 })
 export class AddPatientComponent implements OnInit {
 
+  birthDateString = '';
+  givenNamesString = '';
+  familyNamesString = '';
+  mobileString = '';
+  emailString = '';
+
+
   pageTitle = 'Add Patient';
-  mobilePhone: ContactPoint = {
-    id: 0,
-    rank: 1,
-    use: 'mobile',
-    system: 'phone',
-    value: ''
-  };
-
-  emailAddress: ContactPoint = {
-    id: 0,
-    rank: 2,
-    use: 'home',
-    system: 'emailString',
-    value: ''
-  };
-
-  newPatient: Patient = {
-    id: 0,
-    active: true,
-    title: '',
-    familyName: '',
-    givenNames: '',
-    gender: '',
-    birthDate: moment().toDate(),
-    age: '',
-    mobilePhone: this.mobilePhone,
-    email: this.emailAddress,
-    residentialAddress: null,
-    postalAddress: null
-  };
 
   titles: string[] = [
     'Mr',
@@ -56,13 +33,47 @@ export class AddPatientComponent implements OnInit {
   }
 
   savePatient() {
-    console.log(this.newPatient);
-    this.patientService.savePatient(this.newPatient).subscribe(data => {
+    const newPatient: Patient = {
+      id: 0,
+      active: true,
+      title: '',
+      familyName: '',
+      givenNames: '',
+      gender: '',
+      birthDate: moment().toDate(),
+      age: '',
+      residentialAddress: null,
+      postalAddress: null
+    };
+
+    if (this.mobileString) {
+      newPatient.mobilePhone = {
+        id: 0,
+        rank: 0,
+        use: 'mobile',
+        system: 'phone',
+        value: this.mobileString
+      };
+    }
+    if (this.emailString) {
+      newPatient.email = {
+        id: 0,
+        rank: 0,
+        use: 'home',
+        system: 'emailString',
+        value: this.emailString
+      };
+    }
+
+    this.patientService.savePatient(newPatient).subscribe(data => {
       console.log(data);
     });
   }
 
-  navigateBack() {
+  cancel() {
     this.location.back();
   }
 }
+
+
+

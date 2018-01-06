@@ -1,20 +1,28 @@
-<div id="banner" class="container-fluid">
-  <div class="row">
-    <div class="col-lg">
-      <div id="name">
-        <span *ngIf="patient?.title">{{patient?.title}}</span>
-        <span>{{patient?.givenNames}}</span>
-        <span>{{patient?.familyName}}</span>
-      </div>
-      <div class="d-flex align-items-center">
-        <div class="mr-2">{{patient?.birthDate|date: 'dd MMMM yyyy'}}</div>
-        <div class="mr-2">&bull;</div>
-        <div class="mr-2">{{patient?.age}}</div>
-        <div class="mr-2">&bull;</div>
-        <div>{{patient?.gender}}</div>
-      </div>
+<div id="banner" class="d-flex flex-row align-items-center">
+  <div id="name">
+    <span *ngIf="patient?.title">{{patient?.title}}</span>
+    <span>{{patient?.givenNames}}</span>
+    <span>{{patient?.familyName}}</span>
+  </div>
+  <div class="vertical-divider ml-3 mr-3"></div>
+  <div class="mr-2">
+    <span>{{patient?.birthDate|date: 'dd MMMM yyyy'}}</span>
+    <span> ({{patient?.age}})</span>
+  </div>
+  <div *ngIf="patient?.gender == 'Male'" class="banner-icon male" [inlineSVG]="'assets/svg/sprites.svg#male'"></div>
+  <div *ngIf="patient?.gender == 'Female'" class="banner-icon female" [inlineSVG]="'assets/svg/sprites.svg#female'"></div>
+  <div class="vertical-divider ml-3 mr-3"></div>
+  <div class="banner-icon" [inlineSVG]="'assets/svg/sprites.svg#mobile'"></div>
+  <div class="mr-2">{{patient?.mobilePhone?.value}}</div>
+  <div ngbDropdown class="ml-auto mr-3">
+    <button class="btn btn-sm btn-primary" ngbDropdownToggle>Actions</button>
+    <div ngbDropdownMenu>
+      <button class="dropdown-item" (click)="inviteToPortal()">Invite to Portal</button>
     </div>
   </div>
-
-
+  <div>
+    <input placeholder="Search patient's chart..."/>
+  </div>
 </div>
+
+

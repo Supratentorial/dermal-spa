@@ -1,0 +1,53 @@
+<ng-container *ngIf="addUserEditing; then addUsers else viewUsers">
+
+</ng-container>
+
+<ng-template #viewUsers>
+  <div class="card">
+    <div class="card-header">
+      Users
+      <a [routerLink]="" class="float-right" (click)="addUserEditing = true">add user</a>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let user of users">
+        <app-user-list-item [user]="user"></app-user-list-item>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addUsers>
+  <div class="card">
+    <div class="card-header">
+      New User
+    </div>
+    <div class="card-body">
+      <form class="edit-form">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="givenName">Given Name</label>
+            <input id="givenName" name="givenName" class="form-control"/>
+          </div>
+          <div class="form-group col-6">
+            <label for="familyName">Family Name</label>
+            <input id="familyName" name="familyName" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="email">Email</label>
+            <input id="email" name="email" class="form-control"/>
+          </div>
+          <div class="form-group col-6">
+            <label for="userType">User Type</label>
+            <select id="userType" class="form-control"></select>
+          </div>
+        </div>
+        <div class="flex-row mt-2 mb-2">
+          <button class="btn btn-sm btn-primary mr-1">Save</button>
+          <button class="btn btn-sm btn-secondary" (click)="addUserEditing = false">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

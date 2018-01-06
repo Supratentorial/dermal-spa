@@ -3,8 +3,12 @@
   <div class="row">
     <div class="col-lg-2">
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action">Calendar Settings</button>
-        <button type="button" class="list-group-item list-group-item-action">User Settings</button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['calendar-settings']"
+                routerLinkActive="active">Calendar Settings
+        </button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['user-settings']"
+                routerLinkActive="active">User Settings
+        </button>
         <button type="button" class="list-group-item list-group-item-action">Service Locations</button>
       </div>
     </div>
