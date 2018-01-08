@@ -1,0 +1,33 @@
+<ng-container *ngIf="addProblem; then addProblem else problemList"></ng-container>
+
+
+
+<ng-template #addProblem>
+  <div class="card">
+    <div class="card-header">
+      Edit Problem
+    </div>
+    <div class="card-body">
+      <form class="edit-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Problem</label>
+            <input class="form-control"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #problemList>
+  <div class="card">
+    <div class="card-header">
+      Problem List
+      <a [routerLink]="" class="float-right" (click)="addingProblem = true">add</a>
+    </div>
+    <div class="card-body">
+
+    </div>
+  </div>
+</ng-template>

@@ -37,6 +37,7 @@ import {UserSettingsComponent} from './settings/user-settings/user-settings.comp
 import {UserService} from './services/user.service';
 import { UserListItemComponent } from './settings/user-list-item/user-list-item.component';
 import { PortalInviteComponent } from './patient-portal/portal-invite/portal-invite.component';
+import { ProblemListComponent } from './patient-details/problem-list/problem-list.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PortalInviteComponent } from './patient-portal/portal-invite/portal-inv
     PatientAllergyComponent,
     UserSettingsComponent,
     UserListItemComponent,
-    PortalInviteComponent
+    PortalInviteComponent,
+    ProblemListComponent
   ],
   entryComponents: [AppointmentDetailComponent, PortalInviteComponent],
   imports: [
