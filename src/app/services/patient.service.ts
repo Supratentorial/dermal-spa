@@ -1,5 +1,4 @@
 import {Inject, Injectable} from '@angular/core';
-import {Response} from '@angular/http';
 import {Patient} from '../models/patient';
 import {APP_CONFIG} from '../app.config';
 import {IAppConfig} from '../iapp.config';
@@ -25,7 +24,7 @@ export class PatientService {
   savePatient(patient: Patient) {
     console.log(patient);
     if (patient.id === 0) {
-      return this.httpClient.post(this.config.patientsEndPoint, patient).map((res: Response) => res.json());
+      return this.httpClient.post(this.config.patientsEndPoint, patient);
     }
     return this.httpClient.put(this.config.patientsEndPoint, patient);
   }

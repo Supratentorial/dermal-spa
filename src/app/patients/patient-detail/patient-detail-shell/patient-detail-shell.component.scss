@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/variables';
+
+h4 {
+  background-color: map_get($theme-colors, primary);
+
+}
+
+.view-row {
+  margin-bottom: 0.1em;
+  label {
+    padding: 0;
+  }
+  input {
+    padding: 0;
+    width: 100%;
+  }
+}
