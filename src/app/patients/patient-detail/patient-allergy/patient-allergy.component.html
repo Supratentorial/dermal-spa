@@ -16,6 +16,7 @@
   <div class="card">
     <div class="card-header">
       Editing Allergy
+      <button class="btn btn-secondary btn-sm float-right">Add Allergy</button>
     </div>
     <div class="card-body">
       <form class="edit-form">
@@ -24,28 +25,10 @@
           <span class="custom-control-indicator"></span>
           <span>Nil known drug allergies</span>
         </label>
-        <div class="form-row">
-          <div class="form-group col-12">
-            <label for="allergySearch">Substance</label>
-            <input id="allergySearch" type="text" class="form-control" [ngbTypeahead]="searchSubstances"
-                   [resultTemplate]="typeAheadTemplate" [inputFormatter]="formatter"/>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12">
-            <label for="reaction">Reaction</label>
-            <input id="reaction" class="form-control"/>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12">
-            <label for="category">Category</label>
-            <input id="category" class="form-control"/>
-          </div>
-        </div>
-        <div class="flex-row mb-2 mt-2">
-          <button class="btn btn-sm btn-primary mr-2">Save</button>
-          <button class="btn btn-sm btn-secondary" (click)="editingAllergy=!editAllergy">Cancel</button>
+
+        <div class="card-btn-container d-flex flex-row mt-2">
+          <button class="save-btn">Save</button>
+          <button class="cancel-btn" (click)="editingAllergy=!editAllergy">Cancel</button>
         </div>
       </form>
     </div>

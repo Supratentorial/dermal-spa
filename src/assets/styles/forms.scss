@@ -7,22 +7,23 @@
 
   select.form-control:not([size]):not([multiple]){
     height: 32px;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border: none;
     background-color: $grey-100;
   }
 
   input {
-    padding: 4px 8px;
+    padding: 4px 12px;
     border: none;
     background-color: $grey-100;
+    &:focus{
+      background-color: $grey-100;
+    }
   }
 
   label {
     margin-bottom: 0;
     color: $grey-700;
-    text-transform: uppercase;
-    font-size: 0.75em;
-    letter-spacing: 0.14em;
+    font-size: 1em;
   }
 }

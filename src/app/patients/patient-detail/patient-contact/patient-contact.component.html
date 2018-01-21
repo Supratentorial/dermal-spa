@@ -37,9 +37,9 @@
             <input type="text" name="residentialPostalCode" class="form-control" placeholder="Postcode" [(ngModel)]="residentialPostalCode"/>
           </div>
         </div>
-        <div class="flex-row mb-2 mt-2">
-          <button class="btn btn-sm btn-primary mr-2" type="submit">Save</button>
-          <button class="btn btn-sm btn-secondary" (click)="contactEditing = false">Cancel</button>
+        <div class="card-btn-container d-flex flex-row mt-2">
+          <button class="save-btn" type="submit">Save</button>
+          <button class="cancel-btn" (click)="contactEditing = false">Cancel</button>
         </div>
       </form>
     </div>
