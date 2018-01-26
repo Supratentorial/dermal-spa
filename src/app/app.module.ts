@@ -56,7 +56,7 @@ import {BrowserModule} from '@angular/platform-browser';
 export class AppModule {
   constructor(public oidcSecurityService: OidcSecurityService) {
     const openIdImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
-    openIdImplicitFlowConfiguration.stsServer = 'http://localhost';
+    openIdImplicitFlowConfiguration.stsServer = 'http://localhost:5002';
     openIdImplicitFlowConfiguration.redirect_url = 'http://localhost';
     openIdImplicitFlowConfiguration.client_id = 'dermal-spa';
     openIdImplicitFlowConfiguration.response_type = 'id_token token';
