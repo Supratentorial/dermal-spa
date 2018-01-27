@@ -1,0 +1,37 @@
+@import "~sass-material-design-colors/palette.scss";
+
+$label-margin: -18px;
+
+.has-value {
+  top: $label-margin;
+  opacity: 1;
+  display: block!important;
+  position: absolute;
+}
+
+.floating-field {
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  > {
+    label {
+      position: absolute;
+      top: $label-margin;
+      color: #428bca;
+      font-size: 0.8em;
+    }
+    input {
+      border: 0;
+      padding: 0.1em 0 !important;
+      box-shadow: none !important;
+      border-radius: 0;
+      border-bottom: 1px solid $grey-400;
+      margin-top: $label-margin *-1;
+    }
+  }
+}
+
+.short-input {
+  max-width: 400px;
+  display: block;
+}

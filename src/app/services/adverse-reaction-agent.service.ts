@@ -15,5 +15,4 @@ export class AdverseReactionAgentService {
     return this.httpClient.get(this.config.adverseReactionAgentEndPoint, {params: params}).map(
       (result: any) => result.expansion.contains);
   }
-
 }

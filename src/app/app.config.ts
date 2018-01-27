@@ -9,5 +9,7 @@ export const AppConfig: IAppConfig = {
   adverseReactionAgentEndPoint: 'https://ontoserver.csiro.au/stu3-latest' +
   '/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=refset/142321000036106',
   usersEndPoint: 'http://localhost:5002/api/users',
-  accountsEndPoint: 'http://localhost:5002/account'
+  accountsEndPoint: 'http://localhost:5002/account',
+  problemDiagnosisEndPoint: 'https://ontoserver.csiro.au/stu3-latest' +
+  '/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=refset/32570581000036105'
 };

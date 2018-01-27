@@ -12,6 +12,7 @@
 @import 'assets/styles/buttons.scss';
 @import 'assets/styles/page-header.scss';
 @import 'assets/styles/forms.scss';
+@import 'assets/styles/floating-controls.scss';
 
 body {
   padding-top: 50px;
@@ -35,7 +36,7 @@ body {
   }
 }
 
-.banner-icon{
+.banner-icon {
   height: 20px;
   width: 25px;
   color: $grey-500;
@@ -44,17 +45,27 @@ body {
     height: 20px;
     fill: currentColor;
   }
-  &.male{
+  &.male {
     color: $blue-700;
   }
-  &.female{
+  &.female {
     color: $purple-700;
+  }
+}
+
+.section-icon{
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  color: $grey-400;
+  svg{
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
   }
 }
 
 .no-padding {
   padding: 0;
 }
-
-
 /* You can add global styles to this file, and also import other style files */

@@ -1,33 +1,29 @@
-<ng-container *ngIf="addProblem; then addProblem else problemList"></ng-container>
+<div class="d-flex flew-row align-items-center mb-3">
+  <div class="section-primary mr-3">Problems</div>
+  <div class="section-icon" [inlineSVG]="'assets/svg/sprites.svg#add'" (click)="addingProblem = true"></div>
+</div>
+<ng-container *ngIf="addingProblem; then addTemplate else viewTemplate">
 
-
-
-<ng-template #addProblem>
+</ng-container>
+<ng-template #addTemplate>
   <div class="card">
-    <div class="card-header">
-      Edit Problem
-    </div>
     <div class="card-body">
-      <form class="edit-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Problem</label>
-            <input class="form-control"/>
-          </div>
+      <form>
+        <div class="floating-field">
+          <label for="problem" *ngIf="problemTerm">Problem/Diagnosis</label>
+          <input name="problem" id="problem" class="form-control" [(ngModel)]="problemTerm"
+                 placeholder="Problem/Diagnosis" [resultTemplate]="resultTemplate"
+                 [inputFormatter]="displayFormatter" [ngbTypeahead]="searchTerminology"/>
         </div>
       </form>
     </div>
   </div>
 </ng-template>
 
-<ng-template #problemList>
-  <div class="card">
-    <div class="card-header">
-      Problem List
-      <a [routerLink]="" class="float-right" (click)="addingProblem = true">add</a>
-    </div>
-    <div class="card-body">
+<ng-template #viewTemplate>
 
-    </div>
-  </div>
+</ng-template>
+
+<ng-template #resultTemplate let-r="result" let-t="term">
+  <div>{{r.display}}</div>
 </ng-template>

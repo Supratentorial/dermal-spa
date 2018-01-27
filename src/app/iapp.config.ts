@@ -4,4 +4,5 @@ export interface IAppConfig {
   adverseReactionAgentEndPoint: string;
   usersEndPoint: string;
   accountsEndPoint: string;
+  problemDiagnosisEndPoint: string;
 }

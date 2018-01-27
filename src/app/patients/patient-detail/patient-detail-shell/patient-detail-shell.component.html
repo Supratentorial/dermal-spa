@@ -2,33 +2,13 @@
 <app-patient-banner [patient]="patient"></app-patient-banner>
 
 <div class="container-fluid" style="margin-top: 40px; ">
-  <div class="row mb-3">
-    <div class="col-lg-3">
+  <div class="row">
+    <div class="col-lg-4">
       <app-problem-list></app-problem-list>
     </div>
-    <div class="col-lg-3">
-      <app-patient-allergy></app-patient-allergy>
+    <div class="col-lg-4">
     </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-lg-3">
-      <app-patient-identity [patient]="patient" (saveIdentityInfoEvent)="savePatient()"></app-patient-identity>
-    </div>
-    <div class="col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          Medications
-          <a href="#" class="float-right">edit</a>
-        </div>
-        <div class="card-body">
-          No medications recorded.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-3">
-      <app-patient-contact [patient]="patient" (saveContactInfoEvent)="savePatient()"></app-patient-contact>
+    <div class="col-lg-4">
     </div>
   </div>
 </div>
