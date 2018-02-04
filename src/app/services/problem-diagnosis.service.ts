@@ -5,7 +5,7 @@ import {IAppConfig} from '../iapp.config';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class ProblemListService {
+export class ProblemDiagnosisService {
 
   constructor(private httpClient: HttpClient, @Inject(APP_CONFIG) private config: IAppConfig) {
   }
@@ -18,5 +18,10 @@ export class ProblemListService {
     }
     return this.httpClient.get(this.config.problemDiagnosisEndPoint, {params: params}).map(
       (result: any) => result.expansion.contains);
+  }
+
+  getClinicalFindingById(id: string) {
+    let params = new HttpParams();
+    params = params.append('filter', id);
   }
 }

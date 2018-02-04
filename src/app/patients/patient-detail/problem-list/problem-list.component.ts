@@ -1,22 +1,52 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {ProblemListService} from '../../../services/problem-list.service';
+import {ProblemDiagnosisService} from '../../../services/problem-diagnosis.service';
+import {Condition} from '../../../models/condition';
+import {PatientService} from '../../../services/patient.service';
+import {Patient} from '../../../models/patient';
 
 @Component({
   selector: 'app-problem-list',
   templateUrl: './problem-list.component.html',
   styleUrls: ['../patient-detail-shell/patient-detail-shell.component.scss']
 })
+
 export class ProblemListComponent implements OnInit {
 
-  addingProblem = false;
-  searching = false;
-  problemTerm;
+  @Input()
+  patient: Patient;
 
-  constructor(private problemListService: ProblemListService) {
+  @Output()
+  saveConditionEvent = new EventEmitter();
+
+  addingCondition = false;
+  selectedCondition;
+  searching = false;
+  searchTerm: string;
+  startDate;
+  stopDate;
+  clinicalStatus: string;
+
+  constructor(private problemListService: ProblemDiagnosisService, private patientService: PatientService) {
   }
 
   ngOnInit() {
+  }
+
+  onSelect($event) {
+    $event.preventDefault();
+    this.selectedCondition = $event.item;
+  }
+
+  saveCondition() {
+    const condition: Condition = {
+      id: 0,
+      code: this.selectedCondition.code,
+      bodySite: ''
+    };
+    this.patient.conditions.push(condition);
+    this.addingCondition = false;
+    this.saveConditionEvent.next();
   }
 
   searchTerminology = (text$: Observable<string>) =>
@@ -31,9 +61,6 @@ export class ProblemListComponent implements OnInit {
           }))
       .do(() => this.searching = false)
 
-  displayFormatter(value: fhir.ValueSetExpansionContains): string {
-    return value.display;
-  }
 }
 
 

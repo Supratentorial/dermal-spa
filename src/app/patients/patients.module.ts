@@ -14,6 +14,7 @@ import {PatientDetailShellComponent} from './patient-detail/patient-detail-shell
 import {PatientAllergyComponent} from './patient-detail/patient-allergy/patient-allergy.component';
 import {PatientIdentityComponent} from './patient-detail/patient-identity/patient-identity.component';
 import {PatientContactComponent} from './patient-detail/patient-contact/patient-contact.component';
+import { MedicationListComponent } from './patient-detail/medication-list/medication-list.component';
 
 @NgModule({
     imports: [CommonModule, PatientsRoutingModule, SharedModule, FormsModule, NgbModule, InlineSVGModule],
@@ -28,7 +29,8 @@ import {PatientContactComponent} from './patient-detail/patient-contact/patient-
         PatientDashboardComponent,
         PatientContactComponent,
         PatientIdentityComponent,
-        PatientBannerComponent
+        PatientBannerComponent,
+        MedicationListComponent
     ],
     entryComponents: [PortalInviteComponent],
     providers: [],

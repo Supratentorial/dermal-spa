@@ -1,19 +1,59 @@
-<div class="d-flex flew-row align-items-center mb-3">
+<div class="d-flex flew-row align-items-center mb-1">
   <div class="section-primary mr-3">Problems</div>
-  <div class="section-icon" [inlineSVG]="'assets/svg/sprites.svg#add'" (click)="addingProblem = true"></div>
+  <div class="section-icon" [inlineSVG]="'assets/svg/sprites.svg#add'" (click)="addingCondition = true"></div>
 </div>
-<ng-container *ngIf="addingProblem; then addTemplate else viewTemplate">
+<ng-container *ngIf="addingCondition; then addTemplate else viewTemplate">
 
 </ng-container>
 <ng-template #addTemplate>
   <div class="card">
+    <div class="card-header">
+      Add Problem
+    </div>
     <div class="card-body">
       <form>
-        <div class="floating-field">
-          <label for="problem" *ngIf="problemTerm">Problem/Diagnosis</label>
-          <input name="problem" id="problem" class="form-control" [(ngModel)]="problemTerm"
-                 placeholder="Problem/Diagnosis" [resultTemplate]="resultTemplate"
-                 [inputFormatter]="displayFormatter" [ngbTypeahead]="searchTerminology"/>
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="problem " *ngIf="selectedCondition">
+              {{selectedCondition?.display}}
+            </div>
+          </div>
+          <div class="floating-field col-12" *ngIf="!selectedCondition">
+            <label for="problem" *ngIf="searchTerm">Problem/Diagnosis</label>
+            <input name="problem" id="problem" [(ngModel)]="searchTerm"
+                   placeholder="Problem/Diagnosis" [resultTemplate]="resultTemplate"
+                   [ngbTypeahead]="searchTerminology" (selectItem)="onSelect($event)"/>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="active" name="clinicalStatus" value="Active" class="custom-control-input"
+                     [(ngModel)]="clinicalStatus">
+              <label class="custom-control-label" for="active">Active</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="inactive" name="clinicalStatus" value="Inactive" class="custom-control-input"
+                     [(ngModel)]="clinicalStatus">
+              <label class="custom-control-label" for="inactive">Inactive</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="floating-field col-lg-6">
+            <label for="startDate" *ngIf="startDate">Start date</label>
+            <input name="startDate" id="startDate" placeholder="Start date" [(ngModel)]="startDate"/>
+          </div>
+          <div class="floating-field col-lg-6">
+            <label for="stopDate" *ngIf="stopDate">Stop date</label>
+            <input name="stopDate" id="stopDate" placeholder="Stop date" [(ngModel)]="stopDate"/>
+          </div>
+        </div>
+        <div class="row mt-3" style="border-top: 1px solid lightgrey">
+          <div class="col-12">
+          <button class="btn btn-sm btn-primary" (click)="saveCondition()">Save</button>
+            <button class="btn btn-sm btn-outline-danger">Cancel</button>
+          </div>
         </div>
       </form>
     </div>
@@ -21,7 +61,9 @@
 </ng-template>
 
 <ng-template #viewTemplate>
-
+ <div class="condition ml-3" *ngFor="let condition of patient?.conditions">
+   {{condition.code}}
+ </div>
 </ng-template>
 
 <ng-template #resultTemplate let-r="result" let-t="term">

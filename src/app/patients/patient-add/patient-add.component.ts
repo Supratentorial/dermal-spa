@@ -43,7 +43,8 @@ export class PatientAddComponent implements OnInit {
       birthDate: moment().toDate(),
       age: '',
       residentialAddress: null,
-      postalAddress: null
+      postalAddress: null,
+      conditions: []
     };
 
     if (this.mobileString) {

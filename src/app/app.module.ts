@@ -20,7 +20,7 @@ import {AppointmentsModule} from './appointments/appointments.module';
 import {BillingModule} from './billing/billing.module';
 import {DashobardModule} from './dashboard/dashboard.module';
 import {BrowserModule} from '@angular/platform-browser';
-import {ProblemListService} from './services/problem-list.service';
+import {ProblemDiagnosisService} from './services/problem-diagnosis.service';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import {ProblemListService} from './services/problem-list.service';
     OidcSecurityService,
     CalendarSettingsService,
     AdverseReactionAgentService,
-    ProblemListService,
+    ProblemDiagnosisService,
     UserService
   ],
   bootstrap: [AppComponent]

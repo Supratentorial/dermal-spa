@@ -1,5 +1,6 @@
 import {ContactPoint} from './contact-point';
 import {Address} from './address';
+import {Condition} from './condition';
 
 export class Patient {
   id: number;
@@ -14,4 +15,5 @@ export class Patient {
   email?: ContactPoint;
   residentialAddress: Address;
   postalAddress: Address;
+  conditions: Condition[];
 }

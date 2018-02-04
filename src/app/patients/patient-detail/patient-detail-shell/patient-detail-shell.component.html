@@ -4,9 +4,10 @@
 <div class="container-fluid" style="margin-top: 40px; ">
   <div class="row">
     <div class="col-lg-4">
-      <app-problem-list></app-problem-list>
+      <app-problem-list [patient]="patient" (saveConditionEvent)="savePatient()"></app-problem-list>
     </div>
     <div class="col-lg-4">
+      <app-medication-list></app-medication-list>
     </div>
     <div class="col-lg-4">
     </div>

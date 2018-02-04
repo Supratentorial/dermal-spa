@@ -1,6 +1,6 @@
 @import "~sass-material-design-colors/palette.scss";
 
-$label-margin: -18px;
+$label-margin: -8px;
 
 .has-value {
   top: $label-margin;
@@ -11,8 +11,6 @@ $label-margin: -18px;
 
 .floating-field {
   position: relative;
-  margin-bottom: 1em;
-  padding-bottom: 1em;
   > {
     label {
       position: absolute;
@@ -27,11 +25,10 @@ $label-margin: -18px;
       border-radius: 0;
       border-bottom: 1px solid $grey-400;
       margin-top: $label-margin *-1;
+      width: 100%;
+      &:focus{
+        outline: none;
+      }
     }
   }
-}
-
-.short-input {
-  max-width: 400px;
-  display: block;
 }
