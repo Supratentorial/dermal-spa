@@ -3,7 +3,27 @@
   "mode": {
     "symbol": {
       "dest": "svg",
-      "sprite": "sprites.svg"
+      "sprite": "sprites.svg",
+      "inline": true
     }
+  },
+  "shape": {
+    "transform": [
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "cleanupIDs": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "svg": {
+    "xmlDeclaration": false,
+    "doctypeDeclaration": false,
+    "namespaceIDs": false,
+    "namespaceClassnames": false
   }
 }

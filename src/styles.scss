@@ -57,10 +57,16 @@ body {
   cursor: pointer;
   width: 24px;
   height: 24px;
+
+  &.add-background{
+    stroke: red
+  }
+
   svg {
-    ellipse {
-      fill: blue;
+    &.add-background{
+      stroke: red;
     }
+
     width: 24px;
     height: 24px;
   }

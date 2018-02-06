@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" height="128" width="128" viewBox="0 0 128 128">
   <g>
-    <ellipse class="background" cy="64" cx="64" stroke-width="4.25" ry="61.875" rx="61.875"/>
-    <path class="plus" transform="rotate(0,64,64) translate(30,30) scale(2.125,2.125)" d="M14,0L18,0 18,14 32,14 32,18 18,18 18,32 14,32 14,18 0,18 0,14 14,14z" />
+    <ellipse class="add-background" cy="64" cx="64" stroke-width="4.25" ry="61.875" rx="61.875"/>
+    <path class="add-symbol" transform="rotate(0,64,64) translate(30,30) scale(2.125,2.125)" d="M14,0L18,0 18,14 32,14 32,18 18,18 18,32 14,32 14,18 0,18 0,14 14,14z" />
   </g>
 </svg>
