@@ -5,11 +5,15 @@
   <div class="row">
     <div class="col-lg-4">
       <app-problem-list [patient]="patient" (saveConditionEvent)="savePatient()"></app-problem-list>
+      <app-patient-identity [patient]="patient" (saveIdentityInfoEvent)="savePatient()"></app-patient-identity>
+      <app-patient-contact [patient]="patient" (saveContactInfoEvent)="savePatient()"></app-patient-contact>
     </div>
     <div class="col-lg-4">
       <app-medication-list></app-medication-list>
     </div>
     <div class="col-lg-4">
+      <app-patient-message></app-patient-message>
+      <app-social-history></app-social-history>
     </div>
   </div>
 </div>

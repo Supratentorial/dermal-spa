@@ -1,8 +1,14 @@
 <app-page-header pageTitle="{{pageTitle}}">
-  <button class="btn btn-sm btn-primary" routerLink="add-patient">Add Patient</button>
 </app-page-header>
 <div class="container-fluid">
   <div class="row">
-
+    <div class="col-12">
+      <div class="d-flex flex-row align-items-center mb-2">
+        <div class="section-primary mr-3">Patients</div>
+        <div class="action-icon" [inlineSVG]="'assets/svg/sprites.svg#add'"
+             placement="top" ngbTooltip="Add patient" routerLink="add-patient"></div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

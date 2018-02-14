@@ -1,4 +1,5 @@
 @import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/colors.scss';
 
 h4 {
   background-color: map_get($theme-colors, primary);
@@ -16,15 +17,6 @@ h4 {
   }
 }
 
-.section-primary {
-  background-color: map_get($theme-colors, primary);
-  width: auto;
-  padding: 1px 22px;
-  display: inline-block;
-  font-size: 18px;
-  color: white;
-}
-
 .typeahead-dropdown {
 
 }
@@ -32,12 +24,15 @@ h4 {
 .problem {
   background-color: $grey-200;
   font-weight: 400;
-
 }
 
 .condition {
-  padding: 4px 10px;
-  cursor: pointer;
+  padding: 4px 0;
   font-weight: 400;
-  color: $light-blue-600;
+  width: auto;
+  color: map_get($theme-colors, primary);
+  .arrow{
+    color: $side-nav-color;
+  }
 }
+

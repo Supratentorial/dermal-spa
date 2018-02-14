@@ -42,11 +42,22 @@ export class ProblemListComponent implements OnInit {
     const condition: Condition = {
       id: 0,
       code: this.selectedCondition.code,
-      bodySite: ''
+      bodySite: '',
+      displayString: this.selectedCondition.display
     };
     this.patient.conditions.push(condition);
     this.addingCondition = false;
     this.saveConditionEvent.next();
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.addingCondition = false;
+    this.searchTerm = '';
+    this.startDate = '';
+    this.stopDate = '';
+    this.clinicalStatus = '';
+    this.selectedCondition = null;
   }
 
   searchTerminology = (text$: Observable<string>) =>

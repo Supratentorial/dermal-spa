@@ -1,0 +1,63 @@
+@import '~sass-material-design-colors/palette.scss';
+@import 'colors';
+@import 'variables';
+
+$action-icon-size: 28px;
+$icon-very-small-size: 18px;
+$face-sheet-icon-size: 18px;
+
+$notification-icon-size: 16px;
+
+.action-icon {
+  cursor: pointer;
+  fill: $dark-grey;
+  color: $dark-grey;
+  width: $action-icon-size;
+  height: $action-icon-size;
+  svg {
+    width: $action-icon-size;
+    height: $action-icon-size;
+  }
+}
+
+.face-sheet-icon{
+  width: $face-sheet-icon-size;
+  height: $face-sheet-icon-size;
+  fill: $dark-grey;
+  color: $dark-grey;
+  svg {
+    width: $face-sheet-icon-size;
+    height: $face-sheet-icon-size;
+  }
+}
+
+.icon-enrolled{
+  width: $notification-icon-size;
+  height: $notification-icon-size;
+  fill: red;
+  stroke: transparent;
+  color: white;
+  svg{
+    fill: $green-300;
+    stroke: transparent;
+    width: $notification-icon-size;
+    height: $notification-icon-size;
+  }
+}
+
+svg {
+  &.icon {
+    fill: currentColor;
+  }
+  stroke: $grey-400;
+  fill: white;
+}
+
+.icon-vs {
+  width: $icon-very-small-size;
+  height: $icon-very-small-size;
+  svg {
+    width: $icon-very-small-size;
+    height: $icon-very-small-size;
+  }
+}

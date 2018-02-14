@@ -32,6 +32,7 @@ export class PatientIdentityComponent implements OnInit {
   }
 
   editIdentityInfo() {
+    console.log(this.patient);
     this.identityEditing = true;
     this.titleString = this.patient.title;
     this.familyNameString = this.patient.familyName;

@@ -1,54 +1,46 @@
 <app-page-header pageTitle="{{pageTitle}}"></app-page-header>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          New Patient
+<div class="col-lg-4 no-padding">
+  <div class="card">
+    <div class="card-body">
+      <form #patientRegistrationForm="ngForm" class="edit-form" (ngSubmit)="savePatient()">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="givenNames">Given Names</label>
+            <input id="givenNames" name="givenNames" class="form-control" required
+                   [(ngModel)]="givenNamesString" #givenNames="ngModel"/>
+            <small [hidden]="givenNames.valid || givenNames.pristine">A given name is required.</small>
+          </div>
+          <div class="form-group col-6">
+            <label for="familyName">Family Name</label>
+            <input id="familyName" name="familyName" class="form-control" required
+                   [(ngModel)]="familyNamesString" #familyName="ngModel"/>
+            <small [hidden]="familyName.valid || familyName.pristine">A family name is required.</small>
+          </div>
         </div>
-        <div class="card-body">
-          <form #patientRegistrationForm="ngForm" class="edit-form" (ngSubmit)="savePatient()">
-            <div class="form-row">
-              <div class="form-group col-6">
-                <label for="givenNames">Given Names</label>
-                <input id="givenNames" name="givenNames" class="form-control" required
-                       [(ngModel)]="givenNamesString" #givenNames="ngModel"/>
-                <small [hidden]="givenNames.valid || givenNames.pristine">A given name is required.</small>
-              </div>
-              <div class="form-group col-6">
-                <label for="familyName">Family Name</label>
-                <input id="familyName" name="familyName" class="form-control" required
-                       [(ngModel)]="familyNamesString" #familyName="ngModel"/>
-                <small [hidden]="familyName.valid || familyName.pristine">A family name is required.</small>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-6">
-                <label for="birthday">Birthday</label>
-                <input id="birthday" name="birthday" placeholder="dd/mm/yyyy" class="form-control" required
-                       [(ngModel)]="birthDateString" #birthday="ngModel"/>
-                <small [hidden]="birthday.valid || birthday.pristine">Birthday is required.</small>
-              </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="birthday">Birthday</label>
+            <input id="birthday" name="birthday" placeholder="dd/mm/yyyy" class="form-control" required
+                   [(ngModel)]="birthDateString" #birthday="ngModel"/>
+            <small [hidden]="birthday.valid || birthday.pristine">Birthday is required.</small>
+          </div>
+          <div class="form-group col-6">
+            <label for="gender">Gender</label>
+            <select id="gender" class="form-control">
 
-              <div class="form-group col-6">
-                <label for="gender">Gender</label>
-                <select id="gender" class="form-control">
-
-                </select>
-              </div>
-            </div>
-            <div class="d-flex flex-row mt-2 mb-2">
-              <button class="btn btn-primary btn-sm mr-2" type="submit" [disabled]="patientRegistrationForm.form.invalid">Save</button>
-              <button class="btn btn-secondary btn-sm" (click)="cancel()">Cancel</button>
-            </div>
-          </form>
+            </select>
+          </div>
         </div>
-      </div>
+        <div class="d-flex flex-row mt-2 mb-2">
+          <button class="btn btn-primary btn-sm mr-2" type="submit" [disabled]="patientRegistrationForm.form.invalid">
+            Save
+          </button>
+          <button class="btn btn-secondary btn-sm" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-
-
 <ng-template #matchingPatients>
 
 </ng-template>

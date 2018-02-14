@@ -1,9 +1,12 @@
+<div class="d-flex flew-row align-items-center mb-2 mt-5">
+  <div class="section-primary mr-3">Contact</div>
+  <div class="action-icon" [inlineSVG]="'assets/svg/sprites.svg#edit'" (click)="editContactInfo()" placement="top"
+       ngbTooltip="Edit contact details"></div>
+</div>
+
 <ng-container *ngIf="contactEditing; then editContact else viewContact"></ng-container>
 <ng-template #editContact>
   <div class="card">
-    <div class="card-header">
-      Editing Contact
-    </div>
     <div class="card-body">
       <form #contactForm="ngForm" (ngSubmit)="saveContactInfo(contactForm)" class="edit-form">
         <div class="form-group">
@@ -18,23 +21,28 @@
         <label>Residential Address</label>
         <div class="form-row">
           <div class="col-4">
-            <input type="text" name="residentialUnit" class="form-control" placeholder="Unit" [(ngModel)]="residentialUnit"/>
+            <input type="text" name="residentialUnit" class="form-control" placeholder="Unit"
+                   [(ngModel)]="residentialUnit"/>
           </div>
           <div class="col-8">
-            <input type="text" name="residentialStreetName" class="form-control" placeholder="Street" [(ngModel)]="residentialStreetName"/>
+            <input type="text" name="residentialStreetName" class="form-control" placeholder="Street"
+                   [(ngModel)]="residentialStreetName"/>
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="col-8">
-            <input type="text" name="residentialCity" class="form-control" placeholder="Suburb" [(ngModel)]="residentialCity"/>
+            <input type="text" name="residentialCity" class="form-control" placeholder="Suburb"
+                   [(ngModel)]="residentialCity"/>
           </div>
           <div class="col-4">
-            <input type="text" name="residentialState" class="form-control" placeholder="State" [(ngModel)]="residentialState"/>
+            <input type="text" name="residentialState" class="form-control" placeholder="State"
+                   [(ngModel)]="residentialState"/>
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="col-4">
-            <input type="text" name="residentialPostalCode" class="form-control" placeholder="Postcode" [(ngModel)]="residentialPostalCode"/>
+            <input type="text" name="residentialPostalCode" class="form-control" placeholder="Postcode"
+                   [(ngModel)]="residentialPostalCode"/>
           </div>
         </div>
         <div class="card-btn-container d-flex flex-row mt-2">
@@ -48,23 +56,14 @@
 
 <ng-template #viewContact>
   <div class="card">
-    <div class="card-header">
-      Contact
-      <a [routerLink]="" (click)="editContactInfo()" class="float-right">edit</a>
-    </div>
     <div class="card-body">
-      <div class="form-row view-row">
-        <label for="mobile-view" class="col-sm-3 col-form-label">Mobile</label>
-        <div class="col-sm-9">
-          <input id="mobile-view" type="text" readonly class="form-control-plaintext"
-                 value="{{patient?.mobilePhone?.value}}"/>
-        </div>
+      <div class="d-flex flex-row align-items-center">
+        <div class="face-sheet-icon mr-2" [inlineSVG]="'assets/svg/sprites.svg#mobile'"></div>
+        {{patient?.mobilePhone?.value}}
       </div>
-      <div class="form-row view-row">
-        <label for="email-view" class="col-sm-3 col-form-label">Email</label>
-        <div class="col-sm-9">
-          <input id="email-view" type="text" readonly class="form-control-plaintext" value="{{patient?.email?.value}}">
-        </div>
+      <div class="d-flex flex-row align-items-center">
+        <div class="face-sheet-icon mr-2" [inlineSVG]="'assets/svg/sprites.svg#email'"></div>
+        {{patient?.email?.value}}
       </div>
     </div>
   </div>

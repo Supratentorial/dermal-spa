@@ -1,0 +1,11 @@
+@import '~sass-material-design-colors/palette.scss';
+@import 'variables';
+
+$dark-grey: #263238;
+
+$side-nav-color: $dark-grey;
+$side-nav-font-color: $grey-500;
+$side-footer-color: darken($side-nav-color, 2.5%);
+$side-header-color: map_get($theme-colors, primary);
+$side-divider-color: #323C42;
+$side-header-font-color: white;

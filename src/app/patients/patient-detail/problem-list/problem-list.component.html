@@ -1,31 +1,29 @@
-<div class="d-flex flew-row align-items-center mb-1">
+<div class="d-flex flew-row align-items-center mb-2">
   <div class="section-primary mr-3">Problems</div>
-  <div class="section-icon" [inlineSVG]="'assets/svg/sprites.svg#add'" (click)="addingCondition = true"></div>
+  <div class="icon-sm action-icon" [inlineSVG]="'assets/svg/sprites.svg#add'"
+       (click)="addingCondition = true" placement="top" ngbTooltip="Add problem"></div>
 </div>
 <ng-container *ngIf="addingCondition; then addTemplate else viewTemplate">
 
 </ng-container>
 <ng-template #addTemplate>
   <div class="card">
-    <div class="card-header">
-      Add Problem
-    </div>
     <div class="card-body">
-      <form>
+      <form class="edit-form" #problemForm="ngForm" (ngSubmit)="saveCondition(problemForm)">
+        <div class="form-group">
+          <label for="problem">Problem/Diagnosis</label>
+          <input name="problem" id="problem" class="form-control" [(ngModel)]="searchTerm"
+                 [resultTemplate]="resultTemplate"
+                 [ngbTypeahead]="searchTerminology" (selectItem)="onSelect($event)" required/>
+        </div>
         <div class="row mt-3">
           <div class="col-12">
             <div class="problem " *ngIf="selectedCondition">
               {{selectedCondition?.display}}
             </div>
           </div>
-          <div class="floating-field col-12" *ngIf="!selectedCondition">
-            <label for="problem" *ngIf="searchTerm">Problem/Diagnosis</label>
-            <input name="problem" id="problem" [(ngModel)]="searchTerm"
-                   placeholder="Problem/Diagnosis" [resultTemplate]="resultTemplate"
-                   [ngbTypeahead]="searchTerminology" (selectItem)="onSelect($event)"/>
-          </div>
         </div>
-        <div class="row mt-3">
+        <div class="form-row">
           <div class="col-12">
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" id="active" name="clinicalStatus" value="Active" class="custom-control-input"
@@ -39,21 +37,20 @@
             </div>
           </div>
         </div>
-        <div class="row mt-3">
-          <div class="floating-field col-lg-6">
-            <label for="startDate" *ngIf="startDate">Start date</label>
-            <input name="startDate" id="startDate" placeholder="Start date" [(ngModel)]="startDate"/>
+        <div class="form-row mt-3">
+          <div class="form-group col-lg-6">
+            <label for="startDate">Start date</label>
+            <input name="startDate" id="startDate" placeholder="dd/mm/yyyy" [(ngModel)]="startDate"
+                   class="form-control"/>
           </div>
-          <div class="floating-field col-lg-6">
-            <label for="stopDate" *ngIf="stopDate">Stop date</label>
-            <input name="stopDate" id="stopDate" placeholder="Stop date" [(ngModel)]="stopDate"/>
+          <div class="form-group col-lg-6">
+            <label for="stopDate">Stop date</label>
+            <input name="stopDate" id="stopDate" placeholder="dd/mm/yyyy" [(ngModel)]="stopDate" class="form-control"/>
           </div>
         </div>
-        <div class="row mt-3" style="border-top: 1px solid lightgrey">
-          <div class="col-12">
-          <button class="btn btn-sm btn-primary" (click)="saveCondition()">Save</button>
-            <button class="btn btn-sm btn-outline-danger">Cancel</button>
-          </div>
+        <div class="col-12">
+          <button class="btn btn-sm btn-primary" type="submit" [disabled]="problemForm.form.invalid">Save</button>
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="resetForm()">Cancel</button>
         </div>
       </form>
     </div>
@@ -61,9 +58,13 @@
 </ng-template>
 
 <ng-template #viewTemplate>
- <div class="condition ml-3" *ngFor="let condition of patient?.conditions">
-   {{condition.code}}
- </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="condition d-flex flex-row align-items-center" *ngFor="let condition of patient?.conditions">
+        <span class="mr-2 arrow">&#10140;</span><a>{{condition.displayString}}</a>
+      </div>
+    </div>
+  </div>
 </ng-template>
 
 <ng-template #resultTemplate let-r="result" let-t="term">

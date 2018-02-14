@@ -1,0 +1,25 @@
+<div class="d-flex flew-row align-items-center mb-2  mt-5">
+  <div class="section-primary mr-3">Social History</div>
+  <div class="icon-sm action-icon" [inlineSVG]="'assets/svg/sprites.svg#edit'"></div>
+</div>
+
+<ng-container *ngIf="socialHistoryEditing; then editSocialHistory else viewSocialHistory"></ng-container>
+
+<ng-template #editSocialHistory>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <label>Smoking Status</label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewSocialHistory>
+  <div class="card">
+    <div class="card-body">
+      <span>&#10140;</span>
+
+    </div>
+  </div>
+</ng-template>

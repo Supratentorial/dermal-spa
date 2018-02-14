@@ -1,0 +1,10 @@
+@import 'variables';
+
+.section-primary {
+  background-color: map_get($theme-colors, primary);
+  width: auto;
+  padding: 1px 22px;
+  display: inline-block;
+  font-size: 18px;
+  color: white;
+}

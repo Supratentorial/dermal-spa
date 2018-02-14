@@ -15,6 +15,8 @@ import {PatientAllergyComponent} from './patient-detail/patient-allergy/patient-
 import {PatientIdentityComponent} from './patient-detail/patient-identity/patient-identity.component';
 import {PatientContactComponent} from './patient-detail/patient-contact/patient-contact.component';
 import { MedicationListComponent } from './patient-detail/medication-list/medication-list.component';
+import { PatientMessageComponent } from './patient-detail/patient-message/patient-message.component';
+import { SocialHistoryComponent } from './patient-detail/social-history/social-history.component';
 
 @NgModule({
     imports: [CommonModule, PatientsRoutingModule, SharedModule, FormsModule, NgbModule, InlineSVGModule],
@@ -30,7 +32,9 @@ import { MedicationListComponent } from './patient-detail/medication-list/medica
         PatientContactComponent,
         PatientIdentityComponent,
         PatientBannerComponent,
-        MedicationListComponent
+        MedicationListComponent,
+        PatientMessageComponent,
+        SocialHistoryComponent
     ],
     entryComponents: [PortalInviteComponent],
     providers: [],

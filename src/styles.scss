@@ -12,7 +12,9 @@
 @import 'assets/styles/buttons.scss';
 @import 'assets/styles/page-header.scss';
 @import 'assets/styles/forms.scss';
+@import 'assets/styles/icons.scss';
 @import 'assets/styles/floating-controls.scss';
+@import 'assets/styles/headings.scss';
 
 body {
   padding-top: 50px;
@@ -50,25 +52,6 @@ body {
   }
   &.female {
     color: $purple-700;
-  }
-}
-
-.section-icon {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-
-  &.add-background{
-    stroke: red
-  }
-
-  svg {
-    &.add-background{
-      stroke: red;
-    }
-
-    width: 24px;
-    height: 24px;
   }
 }
 

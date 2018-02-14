@@ -1,0 +1,26 @@
+<div class="d-flex flew-row align-items-center mb-2">
+  <div class="section-primary mr-3">Engagement</div>
+  <div class="icon-sm action-icon mr-3" [inlineSVG]="'assets/svg/sprites.svg#messaging'"></div>
+  <!--<div class="icon-sm action-icon" [inlineSVG]="'assets/svg/sprites.svg#settings'"></div>-->
+</div>
+<ng-container *ngIf="socialHistoryEditing; then editSocialHistory else viewSocialHistory"></ng-container>
+
+<ng-template #></ng-template>
+<div class="card">
+  <div class="card-body">
+    <!--<div class="d-flex flex-row align-items-center">-->
+      <!--<div class="icon-enrolled mr-1" [inlineSVG]="'assets/svg/sprites.svg#tick'"></div>-->
+      <!--<span>Enrolled</span>-->
+    <!--</div>-->
+    <a routerLink="">Enrol patient</a>.
+  </div>
+</div>
+
+
+<ng-template #enrolPatient>
+  <div class="card">
+    <div class="card-body">
+
+    </div>
+  </div>
+</ng-template>

@@ -1,11 +1,6 @@
 @import "../assets/styles/variables";
+@import '../assets/styles/colors';
 
-$side-nav-color: #263238;
-$side-nav-font-color: $grey-500;
-$side-footer-color: darken($side-nav-color, 2.5%);
-$side-header-color: map_get($theme-colors, primary);
-$side-divider-color: #323C42;
-$side-header-font-color: white;
 
 .side-nav {
   width: 200px;
@@ -49,10 +44,9 @@ $side-header-font-color: white;
 }
 
 .nav-link {
-  height: 44px;
   border-left: 6px solid transparent;
   color: $side-nav-font-color;
-  padding: 10px 14px;
+  padding: 16px 14px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   cursor: pointer;

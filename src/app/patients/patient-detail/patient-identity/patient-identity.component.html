@@ -1,29 +1,33 @@
+<div class="d-flex flew-row align-items-center mb-2 mt-5">
+  <div class="section-primary mr-3">Identity</div>
+  <div class="action-icon" [inlineSVG]="'assets/svg/sprites.svg#edit'" (click)="editIdentityInfo()" placement="top"
+       ngbTooltip="Edit identity"></div>
+</div>
 <ng-container *ngIf="identityEditing; then editIdentity else viewIdentity"></ng-container>
 
 <ng-template #editIdentity>
   <div class="card">
-    <div class="card-header">
-      Editing Identity
-    </div>
     <div class="card-body">
       <form #identityForm="ngForm" (ngSubmit)="saveIdentityInfo(identityForm)" class="edit-form">
         <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="title">Title</label>
             <input id="title" name="title" class="form-control" [(ngModel)]="titleString"/>
           </div>
-          <div class="form-group col-md-8">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
             <label for="givenName">Given Names</label>
             <input id="givenName" name="givenNames" class="form-control"
                    [(ngModel)]="givenNamesString"/>
           </div>
-        </div>
-        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="familyName">Family Name</label>
             <input id="familyName" name="familyName" class="form-control"
                    [(ngModel)]="familyNameString"/>
           </div>
+        </div>
+        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="preferredName">Preferred Name</label>
             <input id="preferredName" name="preferredName" class="form-control"/>
@@ -41,7 +45,7 @@
             </select>
           </div>
         </div>
-        <div class="card-btn-container d-flex flex-row mt-2">
+        <div class="d-flex flex-row mt-2">
 
           <button class="save-btn" type="submit">Save</button>
           <button class="cancel-btn" (click)="identityEditing = false">Cancel</button>
@@ -53,32 +57,23 @@
 
 <ng-template #viewIdentity>
   <div class="card">
-    <div class="card-header">
-      Identity
-      <a [routerLink]="" (click)="editIdentityInfo()" class="float-right">edit</a>
-    </div>
     <div class="card-body">
-      <div class="form-row no-gutters view-row">
-        <label for="name" class="col-form-label col-sm-3">Name</label>
-        <div class="col-sm-9">
-          <input id="name" type="text" readonly class="form-control-plaintext"
-                 value="{{patient?.title + ' ' + patient?.givenNames + ' '+  patient?.familyName}}"/>
-        </div>
+      <div class="d-flex flex-row align-items-center">
+        <div *ngIf="patient?.gender == 'Male'" class="face-sheet-icon mr-2"
+             [inlineSVG]="'assets/svg/sprites.svg#user-male'"></div>
+        <div *ngIf="patient?.gender == 'Female'" class="face-sheet-icon mr-2"
+             [inlineSVG]="'assets/svg/sprites.svg#user-female'"></div>
+        {{patient?.title + ' ' + patient?.givenNames + ' '+ patient?.familyName}}
       </div>
-      <div class="form-row no-gutters view-row">
-        <label for="dob" class="col-sm-3 col-form-label">Birthday</label>
-        <div class="col-sm-9">
-          <input id="dob" type="text" readonly class="form-control-plaintext"
-                 value="{{patient?.birthDate|date:'dd MMMM yyyy'}}"/>
-        </div>
+      <div class="d-flex flex-row align-items-center">
+        <div class="face-sheet-icon mr-2" [inlineSVG]="'assets/svg/sprites.svg#cake'"></div>
+        {{patient?.birthDate|date:'dd MMMM yyyy'}}
       </div>
-      <div class="form-row no-gutters view-row">
-        <label for="gender" class="col-sm-3 col-form-label">Gender</label>
-        <div class="col-sm-9">
-          <input id="gender" type="text" readonly class="form-control-plaintext" value="{{patient?.gender}}"/>
-        </div>
+      <div class="d-flex flex-row align-items-center">
+        <div *ngIf="patient?.gender == 'Female'" class="face-sheet-icon mr-2" [inlineSVG]="'assets/svg/sprites.svg#female'"></div>
+        <div *ngIf="patient?.gender == 'Male'" class="face-sheet-icon mr-2" [inlineSVG]="'assets/svg/sprites.svg#male'"></div>
+        {{patient?.gender}}
       </div>
     </div>
-
   </div>
 </ng-template>

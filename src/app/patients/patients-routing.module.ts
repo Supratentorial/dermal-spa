@@ -6,10 +6,17 @@ import {PatientDashboardComponent} from './patient-home/patient-home.component';
 import {PatientDetailShellComponent} from './patient-detail/patient-detail-shell/patient-detail-shell.component';
 
 const patientRoutes: Routes = [
-  {path: 'patients', component: PatientDashboardComponent},
+  {
+    path: 'patients', component: PatientDashboardComponent, children: [
+      {path: 'add-patient', component: PatientAddComponent},
+    ]
+  },
   // Todo: change to children
-  {path: 'patients/add-patient', component: PatientAddComponent},
-  {path: 'patients/:patientId/details', component: PatientDetailShellComponent},
+  {
+    path: 'patients/:patientId/details', component: PatientDetailShellComponent, children: [
+      // {path: 'condition/:conditionId', component: Problem}
+    ]
+  }
 ];
 
 @NgModule({
