@@ -3,20 +3,38 @@
 @import 'variables';
 
 $action-icon-size: 28px;
-$icon-very-small-size: 18px;
+$close-tab-icon-size: 16px;
 $face-sheet-icon-size: 18px;
 
 $notification-icon-size: 16px;
 
 .action-icon {
   cursor: pointer;
-  fill: $dark-grey;
+  fill: white;
   color: $dark-grey;
   width: $action-icon-size;
   height: $action-icon-size;
+  stroke: $grey-400;
   svg {
     width: $action-icon-size;
     height: $action-icon-size;
+  }
+}
+
+.close-tab-icon{
+  position: relative;
+  bottom: 1px;
+  fill: transparent;
+  color: $grey-500;
+    width: $close-tab-icon-size;
+    height: $close-tab-icon-size;
+    svg {
+      width: $close-tab-icon-size;
+      height: $close-tab-icon-size;
+    }
+  &:hover{
+    fill: $red-800;
+    color: white
   }
 }
 
@@ -45,19 +63,25 @@ $notification-icon-size: 16px;
   }
 }
 
-svg {
-  &.icon {
-    fill: currentColor;
+.page-header-icon {
+  width: 22px;
+  height: 22px;
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
   }
-  stroke: $grey-400;
-  fill: white;
 }
 
-.icon-vs {
-  width: $icon-very-small-size;
-  height: $icon-very-small-size;
+.side-nav-icon {
   svg {
-    width: $icon-very-small-size;
-    height: $icon-very-small-size;
+    fill: currentColor;
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
   }
+  stroke: transparent;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
 }

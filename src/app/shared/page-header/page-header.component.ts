@@ -10,6 +10,7 @@ import {PatientService} from '../../services/patient.service';
 import {OidcSecurityService} from 'angular-auth-oidc-client';
 import {Subscription} from 'rxjs/Subscription';
 import {Router} from '@angular/router';
+import {PatientManagerService} from '../../services/patient-manager.service';
 
 @Component({
   selector: 'app-page-header',

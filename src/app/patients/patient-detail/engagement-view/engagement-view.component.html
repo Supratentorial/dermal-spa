@@ -1,0 +1,42 @@
+<div class="d-flex flew-row align-items-center mb-2">
+  <div class="section-primary mr-3">Engagement</div>
+  <!--<div class="icon-sm action-icon" [inlineSVG]="'assets/svg/sprites.svg#settings'"></div>-->
+</div>
+<ng-container *ngIf="isUserEnrolled; then viewState else emptyState"></ng-container>
+<ng-template #viewState>
+  <ngb-tabset>
+    <ngb-tab title="Messages">
+      <ng-template ngbTabContent>
+        <div class="card">
+          <div class="card-body">
+            <p>These are the messages</p>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Virtual Consults">
+      <ng-template ngbTabContent>
+        <div class="card">
+          <div class="card-body">
+            <p>These are the virtual consults.</p>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</ng-template>
+
+<ng-template #emptyState>
+  <div class="card">
+    <div class="card-body">
+      <div [inlineSVG]="'assets/svg/sprites.svg#messages'"></div>
+      <a [routerLink]="[{outlets:{'engagement': ['engagement']}}]">Enrol patient</a>.
+    </div>
+  </div>
+</ng-template>
+
+
+<!--<div class="d-flex flex-row align-items-center">-->
+<!--<div class="icon-enrolled mr-1" [inlineSVG]="'assets/svg/sprites.svg#tick'"></div>-->
+<!--<span>Enrolled</span>-->
+<!--</div>-->

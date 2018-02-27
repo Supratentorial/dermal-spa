@@ -21,6 +21,7 @@ import {BillingModule} from './billing/billing.module';
 import {DashobardModule} from './dashboard/dashboard.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {ProblemDiagnosisService} from './services/problem-diagnosis.service';
+import {PatientManagerService} from './services/patient-manager.service';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {ProblemDiagnosisService} from './services/problem-diagnosis.service';
     CalendarSettingsService,
     AdverseReactionAgentService,
     ProblemDiagnosisService,
-    UserService
+    UserService,
+    PatientManagerService
   ],
   bootstrap: [AppComponent]
 })

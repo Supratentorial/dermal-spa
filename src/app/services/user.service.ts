@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {IAppConfig} from '../iapp.config';
 import {APP_CONFIG} from '../app.config';
 import {User} from '../models/user';
@@ -36,6 +36,11 @@ export class UserService {
       const tokenValue = 'Bearer ' + token;
       this.headers = this.headers.append('Authorization', tokenValue);
     }
+  }
+
+  getUserById(): Observable<User> {
+    this.setHeaders();
+    return this.httpClient.get<User>(this.config.usersEndPoint, {headers: this.headers});
   }
 
 }

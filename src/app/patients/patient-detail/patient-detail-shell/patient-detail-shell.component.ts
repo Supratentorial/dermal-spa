@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PatientService} from '../../../services/patient.service';
 import {ActivatedRoute} from '@angular/router';
 import {Patient} from '../../../models/patient';
+import {PatientManagerService} from '../../../services/patient-manager.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -15,8 +16,8 @@ export class PatientDetailShellComponent implements OnInit {
   patientId: number;
   patient: Patient;
 
-
-  constructor(private patientService: PatientService, private route: ActivatedRoute) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute,
+              public patientManagerService: PatientManagerService) {
   }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class PatientDetailShellComponent implements OnInit {
       this.patientId = +params['patientId'];
       this.patientService.getPatientById(this.patientId).subscribe((patient) => {
         this.patient = <Patient>patient;
+        this.patientManagerService.addPatientToOpenList(this.patient);
         console.log(this.patient);
       });
     });

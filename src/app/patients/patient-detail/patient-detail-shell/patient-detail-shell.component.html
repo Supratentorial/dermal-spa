@@ -1,4 +1,10 @@
-<app-page-header></app-page-header>
+<app-page-header>
+  <div class="patient-tab px-2 py-1 d-flex flex-row align-items-center" *ngFor="let patient of patientManagerService.openPatients">
+    <div class="mr-1">{{patient.givenNames}}</div>
+    <div class="mr-2">{{patient.familyName}}</div>
+    <div class="close-tab-icon" [inlineSVG]="'assets/svg/sprites.svg#close'"></div>
+  </div>
+</app-page-header>
 <app-patient-banner [patient]="patient"></app-patient-banner>
 
 <div class="container-fluid" style="margin-top: 40px; ">
@@ -12,7 +18,7 @@
       <app-medication-list></app-medication-list>
     </div>
     <div class="col-lg-4">
-      <app-patient-message></app-patient-message>
+      <router-outlet name="engagement"></router-outlet>
       <app-social-history></app-social-history>
     </div>
   </div>

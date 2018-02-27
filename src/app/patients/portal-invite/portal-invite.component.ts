@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Patient} from '../../models/patient';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
@@ -16,7 +15,7 @@ export class PortalInviteComponent implements OnInit {
 
   user: User;
 
-  constructor(public activeModal: NgbActiveModal, private userService: UserService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
